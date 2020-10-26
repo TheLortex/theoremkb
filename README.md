@@ -40,7 +40,8 @@ Use the command line interface: `python src/cli.py`
 ### Get help
 
 CLI: `python src/cli.py help`
-Dev docs: install `pdoc3` and build docs using `make docs` or `make docs-server` (live reload).
+
+Documentation: install `pdoc3` and build docs using `make docs` or `make docs-server` (live reload).
 
 ### Add documents in the database
 
@@ -62,11 +63,12 @@ Using the web interface, it's possible to annotate the documents. There are thre
 ### Apply models
 
 Using the CLI: `python src/cli.py apply <model> <tag>`: apply model on all documents, tagging the layer with given name.
+
 Using the WebUI: it's possible to create a layer from a model.
 
 ## Project architecture
 
-[project overview](assets/tkb_structure.png)
+![project overview](assets/tkb_structure.png)
 
 There are several components interacting in this framework:
 - **TKB** (`src/lib/tkb.py`): entry point, declaring classes and extractors, and initializing the database.
