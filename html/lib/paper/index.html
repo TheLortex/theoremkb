@@ -1,0 +1,1789 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.9.1" />
+<title>lib.paper API documentation</title>
+<meta name="description" content="Papers and annotation metadata …" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>lib.paper</code></h1>
+</header>
+<section id="section-intro">
+<h2 id="papers-and-annotation-metadata">Papers and annotation metadata</h2>
+<p>This file contains very important classes because these are the ones that are stored into the database.
+<code><a title="lib.paper.AnnotationLayerInfo" href="#lib.paper.AnnotationLayerInfo">AnnotationLayerInfo</a></code> contains metadata for annotation layers. <code><a title="lib.paper.Paper" href="#lib.paper.Paper">Paper</a></code> contains metadata for research articles.
+These are managed by SQLAlchemy.</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#34;&#34;&#34; ## Papers and annotation metadata
+
+This file contains very important classes because these are the ones that are stored into the database.
+`AnnotationLayerInfo` contains metadata for annotation layers. `Paper` contains metadata for research articles.
+These are managed by SQLAlchemy. 
+&#34;&#34;&#34;
+from __future__ import annotations
+
+import os, bz2, shutil, subprocess, pickle, json, time, datetime
+import fitz, shortuuid, pandas as pd, numpy as np
+from typing import Dict, Optional, List, Tuple
+from lxml import etree as ET
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy import Column, String, Boolean
+from sqlalchemy.orm import relationship
+from sqlalchemy import String, Column, ForeignKey, DateTime, Text, Table
+
+from ..classes import AnnotationClass, AnnotationClassFilter
+from ..config import config
+from ..annotations import AnnotationLayer
+from ..misc.bounding_box import BBX, LabelledBBX
+from ..misc.namespaces import *
+from . import features
+
+
+class ParentModelNotFoundException(Exception):
+    kind: str
+
+
+Base = declarative_base()
+
+association_table = Table(
+    &#34;layer_tags&#34;,
+    Base.metadata,
+    Column(&#34;tag_id&#34;, String(255), ForeignKey(&#34;tags.id&#34;)),
+    Column(&#34;layer_id&#34;, String(255), ForeignKey(&#34;annotationlayers.id&#34;)),
+)
+
+
+class AnnotationLayerInfo(Base):
+    &#34;&#34;&#34; 
+    Metadata for annotation layers.
+    &#34;&#34;&#34;
+    __tablename__ = &#34;annotationlayers&#34;
+    id = Column(String(255), primary_key=True)
+    &#34;&#34;&#34;ID&#34;&#34;&#34;
+
+    class_ = Column(String(255))
+    &#34;&#34;&#34;Annotation class&#34;&#34;&#34;
+    date = Column(DateTime, default=datetime.datetime.utcnow)
+    &#34;&#34;&#34;Creation date&#34;&#34;&#34;
+
+    tags = relationship(
+        &#34;AnnotationLayerTag&#34;,
+        secondary=association_table,
+        lazy=&#34;joined&#34;,
+        back_populates=&#34;layers&#34;,
+    )
+    &#34;&#34;&#34;Tags&#34;&#34;&#34;
+
+    paper_id = Column(String(255), ForeignKey(&#34;papers.id&#34;), nullable=False)
+    paper = relationship(&#34;Paper&#34;, lazy=&#34;joined&#34;, back_populates=&#34;layers&#34;)
+    &#34;&#34;&#34;Paper&#34;&#34;&#34;
+
+    @property
+    def training(self):
+        return any([t.data.get(&#34;training&#34;, False) for t in self.tags])
+
+    def to_web(self) -&gt; dict:
+        &#34;&#34;&#34;
+        Dump class instance as JSON-serializable dict.
+        &#34;&#34;&#34;
+        return {
+            &#34;id&#34;: self.id,
+            &#34;paperId&#34;: self.paper_id,
+            &#34;class&#34;: self.class_,
+            &#34;created&#34;: self.date.strftime(&#34;%d/%m/%y&#34;)
+            if self.date is not None
+            else &#34;UNK&#34;,
+        }
+
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+
+class AnnotationLayerTag(Base):
+    &#34;&#34;&#34;A tag grouping annotation layers.&#34;&#34;&#34;
+    __tablename__ = &#34;tags&#34;
+    id = Column(String(255), primary_key=True)
+    &#34;&#34;&#34;ID.&#34;&#34;&#34;
+    name = Column(String(255))
+    &#34;&#34;&#34;Name.&#34;&#34;&#34;
+    readonly = Column(Boolean)
+    &#34;&#34;&#34;If the tag can be removed or not.&#34;&#34;&#34;
+    data_str = Column(Text, default=&#34;{}&#34;)
+    &#34;&#34;&#34;Additional info contained in the tag.&#34;&#34;&#34;
+
+    layers = relationship(
+        &#34;AnnotationLayerInfo&#34;, secondary=association_table, back_populates=&#34;tags&#34;
+    )
+    &#34;&#34;&#34;Layers that have this tag.&#34;&#34;&#34;
+
+    @property
+    def data(self):
+        &#34;&#34;&#34;Obtain additional info as dict.&#34;&#34;&#34;
+        return json.loads(self.data_str)
+
+    @data.setter
+    def data(self, data: dict):
+        self.data_str = json.dumps(data)
+
+    def to_web(self, counts: Optional[dict] = None) -&gt; dict:
+        &#34;&#34;&#34;
+        Dump class instance as JSON-serializable dict.
+        &#34;&#34;&#34;
+        res = {
+            &#34;id&#34;: self.id,
+            &#34;name&#34;: self.name,
+            &#34;readonly&#34;: self.readonly,
+            &#34;data&#34;: self.data,
+        }
+
+        if counts is not None:
+            res[&#34;counts&#34;] = counts
+        return res
+
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+
+
+class Paper(Base):
+    &#34;&#34;&#34;Papers
+
+    Probably the most important class. It is an abstraction for a research article. 
+    It contains all the metadata needed to apply algorithms and extract informations.
+    &#34;&#34;&#34;
+    __tablename__ = &#34;papers&#34;
+    id = Column(String(255), primary_key=True)
+    &#34;&#34;&#34;ID.&#34;&#34;&#34;
+    title = Column(String(255), nullable=True)
+    &#34;&#34;&#34;Inferred title.&#34;&#34;&#34;
+    pdf_path = Column(String(255), nullable=False)
+    &#34;&#34;&#34;PDF location.&#34;&#34;&#34;
+    metadata_directory = Column(
+        String(255), nullable=False, unique=True
+    )  # relative to DATA_PATH
+    &#34;&#34;&#34;Metadata path.&#34;&#34;&#34;
+
+    layers = relationship(
+        &#34;AnnotationLayerInfo&#34;,
+        lazy=&#34;joined&#34;,
+        back_populates=&#34;paper&#34;,
+        cascade=&#34;save-update,delete&#34;,
+    )
+    &#34;&#34;&#34;List of annotation layers.&#34;&#34;&#34;
+
+    @property
+    def meta_path(self):
+        &#34;&#34;&#34;Get absolute metadata directory.&#34;&#34;&#34;
+        return f&#34;{config.DATA_PATH}/{self.metadata_directory}&#34;
+
+    @property
+    def n_pages(self):
+        &#34;&#34;&#34;Number of pages in the PDF.&#34;&#34;&#34;
+        doc = fitz.open(self.pdf_path)
+        return len(doc)
+
+    def __init__(self, id: str, pdf_path: str, layers={}):
+        &#34;&#34;&#34;Create new article in the DB.&#34;&#34;&#34;
+        super().__init__(id=id, pdf_path=pdf_path, metadata_directory=&#34;papers/&#34; + id)
+
+        if os.path.exists(self.meta_path):
+            shutil.rmtree(self.meta_path)
+        os.makedirs(self.meta_path)
+
+    def get_best_layer(self, class_: str) -&gt; Optional[AnnotationLayerInfo]:
+        &#34;&#34;&#34;Get most recent layer metadata for given class. &#34;&#34;&#34;
+        best_layer = None
+
+        for layer in self.layers:
+            if layer.class_ == class_:
+                if best_layer is None or layer.date &gt; best_layer.date:
+                    best_layer = layer
+
+        return best_layer
+
+    def get_annotation_layer(self, layer_id: str) -&gt; AnnotationLayer:
+        &#34;&#34;&#34;Get annotation layer instance given ID.&#34;&#34;&#34;
+        location = f&#34;{self.meta_path}/annot_{layer_id}.json&#34;
+        return AnnotationLayer(location)
+
+    def remove_annotation_layer(self, session, layer_id: str):
+        &#34;&#34;&#34;Remove annotation layer from paper.&#34;&#34;&#34;
+        location = f&#34;{self.meta_path}/annot_{layer_id}.json&#34;
+        try:
+            os.remove(location + &#34;.bz2&#34;)
+        except Exception:
+            print(&#34;exception when deleted: &#34;, location)
+
+        session.delete(self.get_annotation_info(layer_id))
+
+    def add_annotation_layer(
+        self, class_: str, content: Optional[AnnotationLayer] = None
+    ) -&gt; AnnotationLayerInfo:
+        &#34;&#34;&#34;Create new annotation layer metadata from content.&#34;&#34;&#34;
+
+        new_id = shortuuid.uuid()
+        new_layer = AnnotationLayerInfo(
+            id=new_id,
+            class_=class_,
+            paper_id=self.id,
+        )
+
+        location = f&#34;{self.meta_path}/annot_{new_id}.json&#34;
+
+        self.layers.append(new_layer)
+
+        if content is not None:
+            content.location = location
+            content.save()
+
+        return new_layer
+
+    def get_annotation_info(self, layer_id) -&gt; AnnotationLayerInfo:
+        &#34;&#34;&#34;Get annotation metadata given ID.&#34;&#34;&#34;
+        for layer in self.layers:
+            if layer.id == layer_id:
+                return layer
+        raise Exception(&#34;Layer not found&#34;)
+
+    def __pdfalto(self, xml_path):
+        &#34;&#34;&#34;Extract XML from PDF using PDFalto.&#34;&#34;&#34;
+        result = subprocess.run(
+            [
+                &#34;pdfalto&#34;,
+                &#34;-readingOrder&#34;,
+                &#34;-blocks&#34;,
+                &#34;-annotation&#34;,
+                self.pdf_path,
+                xml_path,
+            ]
+        )
+        if result.returncode != 0:
+            raise Exception(&#34;Failed to convert to xml.&#34;)
+        else:
+            subprocess.run([&#34;bzip2&#34;, &#34;-z&#34;, xml_path])
+
+    def get_xml(self) -&gt; ET.ElementTree:
+        &#34;&#34;&#34;Get XML parsed representation of the PDF.&#34;&#34;&#34;
+        xml_path = f&#34;{self.meta_path}/article.xml&#34;
+        if not os.path.exists(xml_path + &#34;.bz2&#34;):
+            self.__pdfalto(xml_path)
+
+        with bz2.BZ2File(xml_path + &#34;.bz2&#34;, &#34;r&#34;) as f:
+            return ET.parse(f)
+
+    def get_pdf_annotations(self) -&gt; AnnotationLayer:
+        &#34;&#34;&#34;Get PDF annotations as an annotation layer.&#34;&#34;&#34;
+        xml_path = f&#34;{self.meta_path}/article.xml&#34;
+        xml_annot_path = f&#34;{self.meta_path}/article_annot.xml&#34;
+        if not os.path.exists(xml_annot_path):
+            self.__pdfalto(xml_path)
+
+        with open(xml_annot_path, &#34;r&#34;) as f:
+            xml_annot = ET.parse(f)
+            return AnnotationLayer.from_pdf_annotations(xml_annot)
+
+    def apply_annotations_on(
+        self,
+        annotations: AnnotationLayer,
+        target: str,
+        only_for: List[AnnotationClassFilter] = [],
+    ) -&gt; AnnotationLayer:
+        &#34;&#34;&#34; Get a token-wise annotation layer by applying a coarse annotation layer on top of PDF&#39;s tokens.&#34;&#34;&#34;
+        layer = AnnotationLayer()
+
+        req_layers_info = {x.name: self.get_best_layer(x.name) for x in only_for}
+        for k, v in req_layers_info.items():
+            if v is None:
+                raise ParentModelNotFoundException(k)
+
+        req_layers = {
+            k: self.get_annotation_layer(v.id) for k, v in req_layers_info.items()
+        }
+
+        for child in self.get_xml().findall(f&#34;.//{target}&#34;):
+            bbx = BBX.from_element(child)
+
+            ok = False
+            if only_for == []:
+                ok = True
+            else:
+                for p in only_for:
+                    if req_layers[p.name].get_label(bbx) in p.labels:
+                        ok = True
+                        break
+
+            if ok:
+                box = annotations.get(bbx, mode=&#34;full&#34;)
+                if box:
+                    layer.add_box(
+                        LabelledBBX.from_bbx(bbx, box.label, box.group, box.user_data)
+                    )
+
+        return layer
+
+    def extract_raw_text(self, annotations: AnnotationLayer, target: str) -&gt; str:
+        &#34;&#34;&#34;Get textual content of annotation layer.&#34;&#34;&#34;
+        result = []
+
+        for child in self.get_xml().findall(f&#34;.//{target}&#34;):
+            bbx = BBX.from_element(child)
+            if annotations.get_label(bbx, mode=&#34;full&#34;) != &#34;O&#34;:
+                result.append(child.get(&#34;CONTENT&#34;))
+
+            if bbx.page_num &gt; max(annotations._dbs.keys(), default=0):
+                break
+
+        return &#34; &#34;.join(result)
+
+    def _refresh_title(self):
+        &#34;&#34;&#34;Find article title using the header layer.&#34;&#34;&#34;
+        header_annot_info = self.get_best_layer(&#34;header&#34;)
+        if header_annot_info is not None:
+            t0 = time.time()
+            header_annot = self.get_annotation_layer(header_annot_info.id)
+            header_annot.filter(lambda x: x.label == &#34;title&#34;)
+            self.title = self.extract_raw_text(header_annot, f&#34;{ALTO}String&#34;)
+        else:
+            self.title = &#34;&#34;
+
+    def to_web(self, classes: List[str]) -&gt; dict:
+        &#34;&#34;&#34;Serialize paper.&#34;&#34;&#34;
+        class_status = {k: {&#34;count&#34;: 0} for k in classes}
+        for layer in self.layers:
+            class_ = layer.class_
+            class_status[class_][&#34;count&#34;] += 1
+
+        if self.title == &#34;__undef__&#34;:
+            self._refresh_title()
+
+        return {
+            &#34;id&#34;: self.id,
+            &#34;pdf&#34;: f&#34;/papers/{self.id}/pdf&#34;,
+            &#34;classStatus&#34;: class_status,
+            &#34;title&#34;: self.title or &#34;&#34;,
+        }
+
+    def _build_features(self, force=False) -&gt; Dict[str, pd.DataFrame]:
+        &#34;&#34;&#34;Generate hierarchical features for PDF.&#34;&#34;&#34;
+        df_path = f&#34;{self.meta_path}/features.pkl&#34;
+
+        if not force and os.path.exists(df_path) and not config.REBUILD_FEATURES:
+            with open(df_path, &#34;rb&#34;) as f:
+                return pickle.load(f)
+        else:
+            features_dict = features.build_features_dict(self.get_xml().getroot())
+            with open(df_path, &#34;wb&#34;) as f:
+                pickle.dump(features_dict, f)
+            return features_dict
+
+    def render(self, max_height: int = None, max_width: int = None):
+        &#34;&#34;&#34;Render document as a list of numpy arrays.
+        
+        Also returns the scales used.
+        &#34;&#34;&#34;
+        doc = fitz.open(self.pdf_path)
+        pages = []
+        for page in doc:
+            scale = 1
+            if max_height is not None:
+                scale = max_height / page.bound().height
+            if max_width is not None:
+                scale = min(scale, max_width / page.bound().width)
+
+            pix = page.getPixmap(matrix=fitz.Matrix(scale, scale))
+            im = np.frombuffer(pix.samples, dtype=np.uint8).reshape(pix.h, pix.w, pix.n)
+            pages.append((im, scale))
+        return pages
+
+    def get_render_scales(self, max_height: int = None, max_width: int = None):
+        &#34;&#34;&#34;Get which scales have been applied when rendering the document.&#34;&#34;&#34;
+        doc = fitz.open(self.pdf_path)
+        pages = []
+        for page in doc:
+            scale = 1
+            if max_height is not None:
+                scale = max_height / page.bound().height
+            if max_width is not None:
+                scale = min(scale, max_width / page.bound().width)
+            pages.append(scale)
+        return pages
+
+    def get_features(
+        self,
+        leaf_node: str,
+        standardize: bool = True,
+        add_context: bool = True,
+    ) -&gt; pd.DataFrame:
+        &#34;&#34;&#34;Get a stream of features for the requested tokenization.&#34;&#34;&#34;
+        return features.get_features(
+            self._build_features(), leaf_node, standardize, add_context
+        )
+
+    def get_box_validator(self, class_: AnnotationClass):
+        &#34;&#34;&#34;Returns a predicate function that tells if a box is in the chosen annotation class. &#34;&#34;&#34;
+
+        filter_layers: List[Tuple[AnnotationLayer, List[str]]] = []
+        for filter in class_.parents:
+            layer_info = self.get_best_layer(filter.name)
+            if layer_info is not None:
+                filter_layers.append(
+                    (self.get_annotation_layer(layer_info.id), filter.labels)
+                )
+
+        def box_validator(box: BBX) -&gt; bool:
+            for layer, labels in filter_layers:
+                print(layer.bbxs)
+                bbx = layer.get(box)
+                print(&#34;&gt;&#34;, bbx, &#34;(&#34;, box, &#34;)&#34;)
+                if bbx is not None and bbx.label in labels:
+                    return True
+            return False
+
+        if len(class_.parents) &gt; 0:
+            return box_validator
+        else:
+            return lambda _: True</code></pre>
+</details>
+</section>
+<section>
+<h2 class="section-title" id="header-submodules">Sub-modules</h2>
+<dl>
+<dt><code class="name"><a title="lib.paper.features" href="features.html">lib.paper.features</a></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="lib.paper.AnnotationLayerInfo"><code class="flex name class">
+<span>class <span class="ident">AnnotationLayerInfo</span></span>
+<span>(</span><span>**kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Metadata for annotation layers.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class AnnotationLayerInfo(Base):
+    &#34;&#34;&#34; 
+    Metadata for annotation layers.
+    &#34;&#34;&#34;
+    __tablename__ = &#34;annotationlayers&#34;
+    id = Column(String(255), primary_key=True)
+    &#34;&#34;&#34;ID&#34;&#34;&#34;
+
+    class_ = Column(String(255))
+    &#34;&#34;&#34;Annotation class&#34;&#34;&#34;
+    date = Column(DateTime, default=datetime.datetime.utcnow)
+    &#34;&#34;&#34;Creation date&#34;&#34;&#34;
+
+    tags = relationship(
+        &#34;AnnotationLayerTag&#34;,
+        secondary=association_table,
+        lazy=&#34;joined&#34;,
+        back_populates=&#34;layers&#34;,
+    )
+    &#34;&#34;&#34;Tags&#34;&#34;&#34;
+
+    paper_id = Column(String(255), ForeignKey(&#34;papers.id&#34;), nullable=False)
+    paper = relationship(&#34;Paper&#34;, lazy=&#34;joined&#34;, back_populates=&#34;layers&#34;)
+    &#34;&#34;&#34;Paper&#34;&#34;&#34;
+
+    @property
+    def training(self):
+        return any([t.data.get(&#34;training&#34;, False) for t in self.tags])
+
+    def to_web(self) -&gt; dict:
+        &#34;&#34;&#34;
+        Dump class instance as JSON-serializable dict.
+        &#34;&#34;&#34;
+        return {
+            &#34;id&#34;: self.id,
+            &#34;paperId&#34;: self.paper_id,
+            &#34;class&#34;: self.class_,
+            &#34;created&#34;: self.date.strftime(&#34;%d/%m/%y&#34;)
+            if self.date is not None
+            else &#34;UNK&#34;,
+        }
+
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>sqlalchemy.ext.declarative.api.Base</li>
+</ul>
+<h3>Instance variables</h3>
+<dl>
+<dt id="lib.paper.AnnotationLayerInfo.class_"><code class="name">var <span class="ident">class_</span></code></dt>
+<dd>
+<div class="desc"><p>Annotation class</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def __get__(self, instance, owner):
+    if instance is None:
+        return self
+
+    dict_ = instance_dict(instance)
+    if self._supports_population and self.key in dict_:
+        return dict_[self.key]
+    else:
+        return self.impl.get(instance_state(instance), dict_)</code></pre>
+</details>
+</dd>
+<dt id="lib.paper.AnnotationLayerInfo.date"><code class="name">var <span class="ident">date</span></code></dt>
+<dd>
+<div class="desc"><p>Creation date</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def __get__(self, instance, owner):
+    if instance is None:
+        return self
+
+    dict_ = instance_dict(instance)
+    if self._supports_population and self.key in dict_:
+        return dict_[self.key]
+    else:
+        return self.impl.get(instance_state(instance), dict_)</code></pre>
+</details>
+</dd>
+<dt id="lib.paper.AnnotationLayerInfo.id"><code class="name">var <span class="ident">id</span></code></dt>
+<dd>
+<div class="desc"><p>ID</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def __get__(self, instance, owner):
+    if instance is None:
+        return self
+
+    dict_ = instance_dict(instance)
+    if self._supports_population and self.key in dict_:
+        return dict_[self.key]
+    else:
+        return self.impl.get(instance_state(instance), dict_)</code></pre>
+</details>
+</dd>
+<dt id="lib.paper.AnnotationLayerInfo.paper"><code class="name">var <span class="ident">paper</span></code></dt>
+<dd>
+<div class="desc"><p>Paper</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def __get__(self, instance, owner):
+    if instance is None:
+        return self
+
+    dict_ = instance_dict(instance)
+    if self._supports_population and self.key in dict_:
+        return dict_[self.key]
+    else:
+        return self.impl.get(instance_state(instance), dict_)</code></pre>
+</details>
+</dd>
+<dt id="lib.paper.AnnotationLayerInfo.paper_id"><code class="name">var <span class="ident">paper_id</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def __get__(self, instance, owner):
+    if instance is None:
+        return self
+
+    dict_ = instance_dict(instance)
+    if self._supports_population and self.key in dict_:
+        return dict_[self.key]
+    else:
+        return self.impl.get(instance_state(instance), dict_)</code></pre>
+</details>
+</dd>
+<dt id="lib.paper.AnnotationLayerInfo.tags"><code class="name">var <span class="ident">tags</span></code></dt>
+<dd>
+<div class="desc"><p>Tags</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def __get__(self, instance, owner):
+    if instance is None:
+        return self
+
+    dict_ = instance_dict(instance)
+    if self._supports_population and self.key in dict_:
+        return dict_[self.key]
+    else:
+        return self.impl.get(instance_state(instance), dict_)</code></pre>
+</details>
+</dd>
+<dt id="lib.paper.AnnotationLayerInfo.training"><code class="name">var <span class="ident">training</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def training(self):
+    return any([t.data.get(&#34;training&#34;, False) for t in self.tags])</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="lib.paper.AnnotationLayerInfo.to_web"><code class="name flex">
+<span>def <span class="ident">to_web</span></span>(<span>self) ‑> dict</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Dump class instance as JSON-serializable dict.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def to_web(self) -&gt; dict:
+    &#34;&#34;&#34;
+    Dump class instance as JSON-serializable dict.
+    &#34;&#34;&#34;
+    return {
+        &#34;id&#34;: self.id,
+        &#34;paperId&#34;: self.paper_id,
+        &#34;class&#34;: self.class_,
+        &#34;created&#34;: self.date.strftime(&#34;%d/%m/%y&#34;)
+        if self.date is not None
+        else &#34;UNK&#34;,
+    }</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="lib.paper.AnnotationLayerTag"><code class="flex name class">
+<span>class <span class="ident">AnnotationLayerTag</span></span>
+<span>(</span><span>**kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A tag grouping annotation layers.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class AnnotationLayerTag(Base):
+    &#34;&#34;&#34;A tag grouping annotation layers.&#34;&#34;&#34;
+    __tablename__ = &#34;tags&#34;
+    id = Column(String(255), primary_key=True)
+    &#34;&#34;&#34;ID.&#34;&#34;&#34;
+    name = Column(String(255))
+    &#34;&#34;&#34;Name.&#34;&#34;&#34;
+    readonly = Column(Boolean)
+    &#34;&#34;&#34;If the tag can be removed or not.&#34;&#34;&#34;
+    data_str = Column(Text, default=&#34;{}&#34;)
+    &#34;&#34;&#34;Additional info contained in the tag.&#34;&#34;&#34;
+
+    layers = relationship(
+        &#34;AnnotationLayerInfo&#34;, secondary=association_table, back_populates=&#34;tags&#34;
+    )
+    &#34;&#34;&#34;Layers that have this tag.&#34;&#34;&#34;
+
+    @property
+    def data(self):
+        &#34;&#34;&#34;Obtain additional info as dict.&#34;&#34;&#34;
+        return json.loads(self.data_str)
+
+    @data.setter
+    def data(self, data: dict):
+        self.data_str = json.dumps(data)
+
+    def to_web(self, counts: Optional[dict] = None) -&gt; dict:
+        &#34;&#34;&#34;
+        Dump class instance as JSON-serializable dict.
+        &#34;&#34;&#34;
+        res = {
+            &#34;id&#34;: self.id,
+            &#34;name&#34;: self.name,
+            &#34;readonly&#34;: self.readonly,
+            &#34;data&#34;: self.data,
+        }
+
+        if counts is not None:
+            res[&#34;counts&#34;] = counts
+        return res
+
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>sqlalchemy.ext.declarative.api.Base</li>
+</ul>
+<h3>Instance variables</h3>
+<dl>
+<dt id="lib.paper.AnnotationLayerTag.data"><code class="name">var <span class="ident">data</span></code></dt>
+<dd>
+<div class="desc"><p>Obtain additional info as dict.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def data(self):
+    &#34;&#34;&#34;Obtain additional info as dict.&#34;&#34;&#34;
+    return json.loads(self.data_str)</code></pre>
+</details>
+</dd>
+<dt id="lib.paper.AnnotationLayerTag.data_str"><code class="name">var <span class="ident">data_str</span></code></dt>
+<dd>
+<div class="desc"><p>Additional info contained in the tag.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def __get__(self, instance, owner):
+    if instance is None:
+        return self
+
+    dict_ = instance_dict(instance)
+    if self._supports_population and self.key in dict_:
+        return dict_[self.key]
+    else:
+        return self.impl.get(instance_state(instance), dict_)</code></pre>
+</details>
+</dd>
+<dt id="lib.paper.AnnotationLayerTag.id"><code class="name">var <span class="ident">id</span></code></dt>
+<dd>
+<div class="desc"><p>ID.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def __get__(self, instance, owner):
+    if instance is None:
+        return self
+
+    dict_ = instance_dict(instance)
+    if self._supports_population and self.key in dict_:
+        return dict_[self.key]
+    else:
+        return self.impl.get(instance_state(instance), dict_)</code></pre>
+</details>
+</dd>
+<dt id="lib.paper.AnnotationLayerTag.layers"><code class="name">var <span class="ident">layers</span></code></dt>
+<dd>
+<div class="desc"><p>Layers that have this tag.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def __get__(self, instance, owner):
+    if instance is None:
+        return self
+
+    dict_ = instance_dict(instance)
+    if self._supports_population and self.key in dict_:
+        return dict_[self.key]
+    else:
+        return self.impl.get(instance_state(instance), dict_)</code></pre>
+</details>
+</dd>
+<dt id="lib.paper.AnnotationLayerTag.name"><code class="name">var <span class="ident">name</span></code></dt>
+<dd>
+<div class="desc"><p>Name.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def __get__(self, instance, owner):
+    if instance is None:
+        return self
+
+    dict_ = instance_dict(instance)
+    if self._supports_population and self.key in dict_:
+        return dict_[self.key]
+    else:
+        return self.impl.get(instance_state(instance), dict_)</code></pre>
+</details>
+</dd>
+<dt id="lib.paper.AnnotationLayerTag.readonly"><code class="name">var <span class="ident">readonly</span></code></dt>
+<dd>
+<div class="desc"><p>If the tag can be removed or not.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def __get__(self, instance, owner):
+    if instance is None:
+        return self
+
+    dict_ = instance_dict(instance)
+    if self._supports_population and self.key in dict_:
+        return dict_[self.key]
+    else:
+        return self.impl.get(instance_state(instance), dict_)</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="lib.paper.AnnotationLayerTag.to_web"><code class="name flex">
+<span>def <span class="ident">to_web</span></span>(<span>self, counts: Optional[dict] = None) ‑> dict</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Dump class instance as JSON-serializable dict.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def to_web(self, counts: Optional[dict] = None) -&gt; dict:
+    &#34;&#34;&#34;
+    Dump class instance as JSON-serializable dict.
+    &#34;&#34;&#34;
+    res = {
+        &#34;id&#34;: self.id,
+        &#34;name&#34;: self.name,
+        &#34;readonly&#34;: self.readonly,
+        &#34;data&#34;: self.data,
+    }
+
+    if counts is not None:
+        res[&#34;counts&#34;] = counts
+    return res</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="lib.paper.Paper"><code class="flex name class">
+<span>class <span class="ident">Paper</span></span>
+<span>(</span><span>id, pdf_path, layers={})</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Papers</p>
+<p>Probably the most important class. It is an abstraction for a research article.
+It contains all the metadata needed to apply algorithms and extract informations.</p>
+<p>Create new article in the DB.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Paper(Base):
+    &#34;&#34;&#34;Papers
+
+    Probably the most important class. It is an abstraction for a research article. 
+    It contains all the metadata needed to apply algorithms and extract informations.
+    &#34;&#34;&#34;
+    __tablename__ = &#34;papers&#34;
+    id = Column(String(255), primary_key=True)
+    &#34;&#34;&#34;ID.&#34;&#34;&#34;
+    title = Column(String(255), nullable=True)
+    &#34;&#34;&#34;Inferred title.&#34;&#34;&#34;
+    pdf_path = Column(String(255), nullable=False)
+    &#34;&#34;&#34;PDF location.&#34;&#34;&#34;
+    metadata_directory = Column(
+        String(255), nullable=False, unique=True
+    )  # relative to DATA_PATH
+    &#34;&#34;&#34;Metadata path.&#34;&#34;&#34;
+
+    layers = relationship(
+        &#34;AnnotationLayerInfo&#34;,
+        lazy=&#34;joined&#34;,
+        back_populates=&#34;paper&#34;,
+        cascade=&#34;save-update,delete&#34;,
+    )
+    &#34;&#34;&#34;List of annotation layers.&#34;&#34;&#34;
+
+    @property
+    def meta_path(self):
+        &#34;&#34;&#34;Get absolute metadata directory.&#34;&#34;&#34;
+        return f&#34;{config.DATA_PATH}/{self.metadata_directory}&#34;
+
+    @property
+    def n_pages(self):
+        &#34;&#34;&#34;Number of pages in the PDF.&#34;&#34;&#34;
+        doc = fitz.open(self.pdf_path)
+        return len(doc)
+
+    def __init__(self, id: str, pdf_path: str, layers={}):
+        &#34;&#34;&#34;Create new article in the DB.&#34;&#34;&#34;
+        super().__init__(id=id, pdf_path=pdf_path, metadata_directory=&#34;papers/&#34; + id)
+
+        if os.path.exists(self.meta_path):
+            shutil.rmtree(self.meta_path)
+        os.makedirs(self.meta_path)
+
+    def get_best_layer(self, class_: str) -&gt; Optional[AnnotationLayerInfo]:
+        &#34;&#34;&#34;Get most recent layer metadata for given class. &#34;&#34;&#34;
+        best_layer = None
+
+        for layer in self.layers:
+            if layer.class_ == class_:
+                if best_layer is None or layer.date &gt; best_layer.date:
+                    best_layer = layer
+
+        return best_layer
+
+    def get_annotation_layer(self, layer_id: str) -&gt; AnnotationLayer:
+        &#34;&#34;&#34;Get annotation layer instance given ID.&#34;&#34;&#34;
+        location = f&#34;{self.meta_path}/annot_{layer_id}.json&#34;
+        return AnnotationLayer(location)
+
+    def remove_annotation_layer(self, session, layer_id: str):
+        &#34;&#34;&#34;Remove annotation layer from paper.&#34;&#34;&#34;
+        location = f&#34;{self.meta_path}/annot_{layer_id}.json&#34;
+        try:
+            os.remove(location + &#34;.bz2&#34;)
+        except Exception:
+            print(&#34;exception when deleted: &#34;, location)
+
+        session.delete(self.get_annotation_info(layer_id))
+
+    def add_annotation_layer(
+        self, class_: str, content: Optional[AnnotationLayer] = None
+    ) -&gt; AnnotationLayerInfo:
+        &#34;&#34;&#34;Create new annotation layer metadata from content.&#34;&#34;&#34;
+
+        new_id = shortuuid.uuid()
+        new_layer = AnnotationLayerInfo(
+            id=new_id,
+            class_=class_,
+            paper_id=self.id,
+        )
+
+        location = f&#34;{self.meta_path}/annot_{new_id}.json&#34;
+
+        self.layers.append(new_layer)
+
+        if content is not None:
+            content.location = location
+            content.save()
+
+        return new_layer
+
+    def get_annotation_info(self, layer_id) -&gt; AnnotationLayerInfo:
+        &#34;&#34;&#34;Get annotation metadata given ID.&#34;&#34;&#34;
+        for layer in self.layers:
+            if layer.id == layer_id:
+                return layer
+        raise Exception(&#34;Layer not found&#34;)
+
+    def __pdfalto(self, xml_path):
+        &#34;&#34;&#34;Extract XML from PDF using PDFalto.&#34;&#34;&#34;
+        result = subprocess.run(
+            [
+                &#34;pdfalto&#34;,
+                &#34;-readingOrder&#34;,
+                &#34;-blocks&#34;,
+                &#34;-annotation&#34;,
+                self.pdf_path,
+                xml_path,
+            ]
+        )
+        if result.returncode != 0:
+            raise Exception(&#34;Failed to convert to xml.&#34;)
+        else:
+            subprocess.run([&#34;bzip2&#34;, &#34;-z&#34;, xml_path])
+
+    def get_xml(self) -&gt; ET.ElementTree:
+        &#34;&#34;&#34;Get XML parsed representation of the PDF.&#34;&#34;&#34;
+        xml_path = f&#34;{self.meta_path}/article.xml&#34;
+        if not os.path.exists(xml_path + &#34;.bz2&#34;):
+            self.__pdfalto(xml_path)
+
+        with bz2.BZ2File(xml_path + &#34;.bz2&#34;, &#34;r&#34;) as f:
+            return ET.parse(f)
+
+    def get_pdf_annotations(self) -&gt; AnnotationLayer:
+        &#34;&#34;&#34;Get PDF annotations as an annotation layer.&#34;&#34;&#34;
+        xml_path = f&#34;{self.meta_path}/article.xml&#34;
+        xml_annot_path = f&#34;{self.meta_path}/article_annot.xml&#34;
+        if not os.path.exists(xml_annot_path):
+            self.__pdfalto(xml_path)
+
+        with open(xml_annot_path, &#34;r&#34;) as f:
+            xml_annot = ET.parse(f)
+            return AnnotationLayer.from_pdf_annotations(xml_annot)
+
+    def apply_annotations_on(
+        self,
+        annotations: AnnotationLayer,
+        target: str,
+        only_for: List[AnnotationClassFilter] = [],
+    ) -&gt; AnnotationLayer:
+        &#34;&#34;&#34; Get a token-wise annotation layer by applying a coarse annotation layer on top of PDF&#39;s tokens.&#34;&#34;&#34;
+        layer = AnnotationLayer()
+
+        req_layers_info = {x.name: self.get_best_layer(x.name) for x in only_for}
+        for k, v in req_layers_info.items():
+            if v is None:
+                raise ParentModelNotFoundException(k)
+
+        req_layers = {
+            k: self.get_annotation_layer(v.id) for k, v in req_layers_info.items()
+        }
+
+        for child in self.get_xml().findall(f&#34;.//{target}&#34;):
+            bbx = BBX.from_element(child)
+
+            ok = False
+            if only_for == []:
+                ok = True
+            else:
+                for p in only_for:
+                    if req_layers[p.name].get_label(bbx) in p.labels:
+                        ok = True
+                        break
+
+            if ok:
+                box = annotations.get(bbx, mode=&#34;full&#34;)
+                if box:
+                    layer.add_box(
+                        LabelledBBX.from_bbx(bbx, box.label, box.group, box.user_data)
+                    )
+
+        return layer
+
+    def extract_raw_text(self, annotations: AnnotationLayer, target: str) -&gt; str:
+        &#34;&#34;&#34;Get textual content of annotation layer.&#34;&#34;&#34;
+        result = []
+
+        for child in self.get_xml().findall(f&#34;.//{target}&#34;):
+            bbx = BBX.from_element(child)
+            if annotations.get_label(bbx, mode=&#34;full&#34;) != &#34;O&#34;:
+                result.append(child.get(&#34;CONTENT&#34;))
+
+            if bbx.page_num &gt; max(annotations._dbs.keys(), default=0):
+                break
+
+        return &#34; &#34;.join(result)
+
+    def _refresh_title(self):
+        &#34;&#34;&#34;Find article title using the header layer.&#34;&#34;&#34;
+        header_annot_info = self.get_best_layer(&#34;header&#34;)
+        if header_annot_info is not None:
+            t0 = time.time()
+            header_annot = self.get_annotation_layer(header_annot_info.id)
+            header_annot.filter(lambda x: x.label == &#34;title&#34;)
+            self.title = self.extract_raw_text(header_annot, f&#34;{ALTO}String&#34;)
+        else:
+            self.title = &#34;&#34;
+
+    def to_web(self, classes: List[str]) -&gt; dict:
+        &#34;&#34;&#34;Serialize paper.&#34;&#34;&#34;
+        class_status = {k: {&#34;count&#34;: 0} for k in classes}
+        for layer in self.layers:
+            class_ = layer.class_
+            class_status[class_][&#34;count&#34;] += 1
+
+        if self.title == &#34;__undef__&#34;:
+            self._refresh_title()
+
+        return {
+            &#34;id&#34;: self.id,
+            &#34;pdf&#34;: f&#34;/papers/{self.id}/pdf&#34;,
+            &#34;classStatus&#34;: class_status,
+            &#34;title&#34;: self.title or &#34;&#34;,
+        }
+
+    def _build_features(self, force=False) -&gt; Dict[str, pd.DataFrame]:
+        &#34;&#34;&#34;Generate hierarchical features for PDF.&#34;&#34;&#34;
+        df_path = f&#34;{self.meta_path}/features.pkl&#34;
+
+        if not force and os.path.exists(df_path) and not config.REBUILD_FEATURES:
+            with open(df_path, &#34;rb&#34;) as f:
+                return pickle.load(f)
+        else:
+            features_dict = features.build_features_dict(self.get_xml().getroot())
+            with open(df_path, &#34;wb&#34;) as f:
+                pickle.dump(features_dict, f)
+            return features_dict
+
+    def render(self, max_height: int = None, max_width: int = None):
+        &#34;&#34;&#34;Render document as a list of numpy arrays.
+        
+        Also returns the scales used.
+        &#34;&#34;&#34;
+        doc = fitz.open(self.pdf_path)
+        pages = []
+        for page in doc:
+            scale = 1
+            if max_height is not None:
+                scale = max_height / page.bound().height
+            if max_width is not None:
+                scale = min(scale, max_width / page.bound().width)
+
+            pix = page.getPixmap(matrix=fitz.Matrix(scale, scale))
+            im = np.frombuffer(pix.samples, dtype=np.uint8).reshape(pix.h, pix.w, pix.n)
+            pages.append((im, scale))
+        return pages
+
+    def get_render_scales(self, max_height: int = None, max_width: int = None):
+        &#34;&#34;&#34;Get which scales have been applied when rendering the document.&#34;&#34;&#34;
+        doc = fitz.open(self.pdf_path)
+        pages = []
+        for page in doc:
+            scale = 1
+            if max_height is not None:
+                scale = max_height / page.bound().height
+            if max_width is not None:
+                scale = min(scale, max_width / page.bound().width)
+            pages.append(scale)
+        return pages
+
+    def get_features(
+        self,
+        leaf_node: str,
+        standardize: bool = True,
+        add_context: bool = True,
+    ) -&gt; pd.DataFrame:
+        &#34;&#34;&#34;Get a stream of features for the requested tokenization.&#34;&#34;&#34;
+        return features.get_features(
+            self._build_features(), leaf_node, standardize, add_context
+        )
+
+    def get_box_validator(self, class_: AnnotationClass):
+        &#34;&#34;&#34;Returns a predicate function that tells if a box is in the chosen annotation class. &#34;&#34;&#34;
+
+        filter_layers: List[Tuple[AnnotationLayer, List[str]]] = []
+        for filter in class_.parents:
+            layer_info = self.get_best_layer(filter.name)
+            if layer_info is not None:
+                filter_layers.append(
+                    (self.get_annotation_layer(layer_info.id), filter.labels)
+                )
+
+        def box_validator(box: BBX) -&gt; bool:
+            for layer, labels in filter_layers:
+                print(layer.bbxs)
+                bbx = layer.get(box)
+                print(&#34;&gt;&#34;, bbx, &#34;(&#34;, box, &#34;)&#34;)
+                if bbx is not None and bbx.label in labels:
+                    return True
+            return False
+
+        if len(class_.parents) &gt; 0:
+            return box_validator
+        else:
+            return lambda _: True</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>sqlalchemy.ext.declarative.api.Base</li>
+</ul>
+<h3>Instance variables</h3>
+<dl>
+<dt id="lib.paper.Paper.id"><code class="name">var <span class="ident">id</span></code></dt>
+<dd>
+<div class="desc"><p>ID.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def __get__(self, instance, owner):
+    if instance is None:
+        return self
+
+    dict_ = instance_dict(instance)
+    if self._supports_population and self.key in dict_:
+        return dict_[self.key]
+    else:
+        return self.impl.get(instance_state(instance), dict_)</code></pre>
+</details>
+</dd>
+<dt id="lib.paper.Paper.layers"><code class="name">var <span class="ident">layers</span></code></dt>
+<dd>
+<div class="desc"><p>List of annotation layers.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def __get__(self, instance, owner):
+    if instance is None:
+        return self
+
+    dict_ = instance_dict(instance)
+    if self._supports_population and self.key in dict_:
+        return dict_[self.key]
+    else:
+        return self.impl.get(instance_state(instance), dict_)</code></pre>
+</details>
+</dd>
+<dt id="lib.paper.Paper.meta_path"><code class="name">var <span class="ident">meta_path</span></code></dt>
+<dd>
+<div class="desc"><p>Get absolute metadata directory.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def meta_path(self):
+    &#34;&#34;&#34;Get absolute metadata directory.&#34;&#34;&#34;
+    return f&#34;{config.DATA_PATH}/{self.metadata_directory}&#34;</code></pre>
+</details>
+</dd>
+<dt id="lib.paper.Paper.metadata_directory"><code class="name">var <span class="ident">metadata_directory</span></code></dt>
+<dd>
+<div class="desc"><p>Metadata path.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def __get__(self, instance, owner):
+    if instance is None:
+        return self
+
+    dict_ = instance_dict(instance)
+    if self._supports_population and self.key in dict_:
+        return dict_[self.key]
+    else:
+        return self.impl.get(instance_state(instance), dict_)</code></pre>
+</details>
+</dd>
+<dt id="lib.paper.Paper.n_pages"><code class="name">var <span class="ident">n_pages</span></code></dt>
+<dd>
+<div class="desc"><p>Number of pages in the PDF.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def n_pages(self):
+    &#34;&#34;&#34;Number of pages in the PDF.&#34;&#34;&#34;
+    doc = fitz.open(self.pdf_path)
+    return len(doc)</code></pre>
+</details>
+</dd>
+<dt id="lib.paper.Paper.pdf_path"><code class="name">var <span class="ident">pdf_path</span></code></dt>
+<dd>
+<div class="desc"><p>PDF location.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def __get__(self, instance, owner):
+    if instance is None:
+        return self
+
+    dict_ = instance_dict(instance)
+    if self._supports_population and self.key in dict_:
+        return dict_[self.key]
+    else:
+        return self.impl.get(instance_state(instance), dict_)</code></pre>
+</details>
+</dd>
+<dt id="lib.paper.Paper.title"><code class="name">var <span class="ident">title</span></code></dt>
+<dd>
+<div class="desc"><p>Inferred title.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def __get__(self, instance, owner):
+    if instance is None:
+        return self
+
+    dict_ = instance_dict(instance)
+    if self._supports_population and self.key in dict_:
+        return dict_[self.key]
+    else:
+        return self.impl.get(instance_state(instance), dict_)</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="lib.paper.Paper.add_annotation_layer"><code class="name flex">
+<span>def <span class="ident">add_annotation_layer</span></span>(<span>self, class_: str, content: Optional[AnnotationLayer] = None) ‑> <a title="lib.paper.AnnotationLayerInfo" href="#lib.paper.AnnotationLayerInfo">AnnotationLayerInfo</a></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Create new annotation layer metadata from content.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def add_annotation_layer(
+    self, class_: str, content: Optional[AnnotationLayer] = None
+) -&gt; AnnotationLayerInfo:
+    &#34;&#34;&#34;Create new annotation layer metadata from content.&#34;&#34;&#34;
+
+    new_id = shortuuid.uuid()
+    new_layer = AnnotationLayerInfo(
+        id=new_id,
+        class_=class_,
+        paper_id=self.id,
+    )
+
+    location = f&#34;{self.meta_path}/annot_{new_id}.json&#34;
+
+    self.layers.append(new_layer)
+
+    if content is not None:
+        content.location = location
+        content.save()
+
+    return new_layer</code></pre>
+</details>
+</dd>
+<dt id="lib.paper.Paper.apply_annotations_on"><code class="name flex">
+<span>def <span class="ident">apply_annotations_on</span></span>(<span>self, annotations: AnnotationLayer, target: str, only_for: List[AnnotationClassFilter] = []) ‑> <a title="lib.annotations.AnnotationLayer" href="../annotations.html#lib.annotations.AnnotationLayer">AnnotationLayer</a></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Get a token-wise annotation layer by applying a coarse annotation layer on top of PDF's tokens.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def apply_annotations_on(
+    self,
+    annotations: AnnotationLayer,
+    target: str,
+    only_for: List[AnnotationClassFilter] = [],
+) -&gt; AnnotationLayer:
+    &#34;&#34;&#34; Get a token-wise annotation layer by applying a coarse annotation layer on top of PDF&#39;s tokens.&#34;&#34;&#34;
+    layer = AnnotationLayer()
+
+    req_layers_info = {x.name: self.get_best_layer(x.name) for x in only_for}
+    for k, v in req_layers_info.items():
+        if v is None:
+            raise ParentModelNotFoundException(k)
+
+    req_layers = {
+        k: self.get_annotation_layer(v.id) for k, v in req_layers_info.items()
+    }
+
+    for child in self.get_xml().findall(f&#34;.//{target}&#34;):
+        bbx = BBX.from_element(child)
+
+        ok = False
+        if only_for == []:
+            ok = True
+        else:
+            for p in only_for:
+                if req_layers[p.name].get_label(bbx) in p.labels:
+                    ok = True
+                    break
+
+        if ok:
+            box = annotations.get(bbx, mode=&#34;full&#34;)
+            if box:
+                layer.add_box(
+                    LabelledBBX.from_bbx(bbx, box.label, box.group, box.user_data)
+                )
+
+    return layer</code></pre>
+</details>
+</dd>
+<dt id="lib.paper.Paper.extract_raw_text"><code class="name flex">
+<span>def <span class="ident">extract_raw_text</span></span>(<span>self, annotations: AnnotationLayer, target: str) ‑> str</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Get textual content of annotation layer.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def extract_raw_text(self, annotations: AnnotationLayer, target: str) -&gt; str:
+    &#34;&#34;&#34;Get textual content of annotation layer.&#34;&#34;&#34;
+    result = []
+
+    for child in self.get_xml().findall(f&#34;.//{target}&#34;):
+        bbx = BBX.from_element(child)
+        if annotations.get_label(bbx, mode=&#34;full&#34;) != &#34;O&#34;:
+            result.append(child.get(&#34;CONTENT&#34;))
+
+        if bbx.page_num &gt; max(annotations._dbs.keys(), default=0):
+            break
+
+    return &#34; &#34;.join(result)</code></pre>
+</details>
+</dd>
+<dt id="lib.paper.Paper.get_annotation_info"><code class="name flex">
+<span>def <span class="ident">get_annotation_info</span></span>(<span>self, layer_id) ‑> <a title="lib.paper.AnnotationLayerInfo" href="#lib.paper.AnnotationLayerInfo">AnnotationLayerInfo</a></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Get annotation metadata given ID.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_annotation_info(self, layer_id) -&gt; AnnotationLayerInfo:
+    &#34;&#34;&#34;Get annotation metadata given ID.&#34;&#34;&#34;
+    for layer in self.layers:
+        if layer.id == layer_id:
+            return layer
+    raise Exception(&#34;Layer not found&#34;)</code></pre>
+</details>
+</dd>
+<dt id="lib.paper.Paper.get_annotation_layer"><code class="name flex">
+<span>def <span class="ident">get_annotation_layer</span></span>(<span>self, layer_id: str) ‑> <a title="lib.annotations.AnnotationLayer" href="../annotations.html#lib.annotations.AnnotationLayer">AnnotationLayer</a></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Get annotation layer instance given ID.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_annotation_layer(self, layer_id: str) -&gt; AnnotationLayer:
+    &#34;&#34;&#34;Get annotation layer instance given ID.&#34;&#34;&#34;
+    location = f&#34;{self.meta_path}/annot_{layer_id}.json&#34;
+    return AnnotationLayer(location)</code></pre>
+</details>
+</dd>
+<dt id="lib.paper.Paper.get_best_layer"><code class="name flex">
+<span>def <span class="ident">get_best_layer</span></span>(<span>self, class_: str) ‑> Union[<a title="lib.paper.AnnotationLayerInfo" href="#lib.paper.AnnotationLayerInfo">AnnotationLayerInfo</a>, NoneType]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Get most recent layer metadata for given class.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_best_layer(self, class_: str) -&gt; Optional[AnnotationLayerInfo]:
+    &#34;&#34;&#34;Get most recent layer metadata for given class. &#34;&#34;&#34;
+    best_layer = None
+
+    for layer in self.layers:
+        if layer.class_ == class_:
+            if best_layer is None or layer.date &gt; best_layer.date:
+                best_layer = layer
+
+    return best_layer</code></pre>
+</details>
+</dd>
+<dt id="lib.paper.Paper.get_box_validator"><code class="name flex">
+<span>def <span class="ident">get_box_validator</span></span>(<span>self, class_: AnnotationClass)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns a predicate function that tells if a box is in the chosen annotation class.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_box_validator(self, class_: AnnotationClass):
+    &#34;&#34;&#34;Returns a predicate function that tells if a box is in the chosen annotation class. &#34;&#34;&#34;
+
+    filter_layers: List[Tuple[AnnotationLayer, List[str]]] = []
+    for filter in class_.parents:
+        layer_info = self.get_best_layer(filter.name)
+        if layer_info is not None:
+            filter_layers.append(
+                (self.get_annotation_layer(layer_info.id), filter.labels)
+            )
+
+    def box_validator(box: BBX) -&gt; bool:
+        for layer, labels in filter_layers:
+            print(layer.bbxs)
+            bbx = layer.get(box)
+            print(&#34;&gt;&#34;, bbx, &#34;(&#34;, box, &#34;)&#34;)
+            if bbx is not None and bbx.label in labels:
+                return True
+        return False
+
+    if len(class_.parents) &gt; 0:
+        return box_validator
+    else:
+        return lambda _: True</code></pre>
+</details>
+</dd>
+<dt id="lib.paper.Paper.get_features"><code class="name flex">
+<span>def <span class="ident">get_features</span></span>(<span>self, leaf_node: str, standardize: bool = True, add_context: bool = True) ‑> pandas.core.frame.DataFrame</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Get a stream of features for the requested tokenization.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_features(
+    self,
+    leaf_node: str,
+    standardize: bool = True,
+    add_context: bool = True,
+) -&gt; pd.DataFrame:
+    &#34;&#34;&#34;Get a stream of features for the requested tokenization.&#34;&#34;&#34;
+    return features.get_features(
+        self._build_features(), leaf_node, standardize, add_context
+    )</code></pre>
+</details>
+</dd>
+<dt id="lib.paper.Paper.get_pdf_annotations"><code class="name flex">
+<span>def <span class="ident">get_pdf_annotations</span></span>(<span>self) ‑> <a title="lib.annotations.AnnotationLayer" href="../annotations.html#lib.annotations.AnnotationLayer">AnnotationLayer</a></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Get PDF annotations as an annotation layer.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_pdf_annotations(self) -&gt; AnnotationLayer:
+    &#34;&#34;&#34;Get PDF annotations as an annotation layer.&#34;&#34;&#34;
+    xml_path = f&#34;{self.meta_path}/article.xml&#34;
+    xml_annot_path = f&#34;{self.meta_path}/article_annot.xml&#34;
+    if not os.path.exists(xml_annot_path):
+        self.__pdfalto(xml_path)
+
+    with open(xml_annot_path, &#34;r&#34;) as f:
+        xml_annot = ET.parse(f)
+        return AnnotationLayer.from_pdf_annotations(xml_annot)</code></pre>
+</details>
+</dd>
+<dt id="lib.paper.Paper.get_render_scales"><code class="name flex">
+<span>def <span class="ident">get_render_scales</span></span>(<span>self, max_height: int = None, max_width: int = None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Get which scales have been applied when rendering the document.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_render_scales(self, max_height: int = None, max_width: int = None):
+    &#34;&#34;&#34;Get which scales have been applied when rendering the document.&#34;&#34;&#34;
+    doc = fitz.open(self.pdf_path)
+    pages = []
+    for page in doc:
+        scale = 1
+        if max_height is not None:
+            scale = max_height / page.bound().height
+        if max_width is not None:
+            scale = min(scale, max_width / page.bound().width)
+        pages.append(scale)
+    return pages</code></pre>
+</details>
+</dd>
+<dt id="lib.paper.Paper.get_xml"><code class="name flex">
+<span>def <span class="ident">get_xml</span></span>(<span>self) ‑> <cyfunction ElementTree at 0x7f57b50f4ad0></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Get XML parsed representation of the PDF.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_xml(self) -&gt; ET.ElementTree:
+    &#34;&#34;&#34;Get XML parsed representation of the PDF.&#34;&#34;&#34;
+    xml_path = f&#34;{self.meta_path}/article.xml&#34;
+    if not os.path.exists(xml_path + &#34;.bz2&#34;):
+        self.__pdfalto(xml_path)
+
+    with bz2.BZ2File(xml_path + &#34;.bz2&#34;, &#34;r&#34;) as f:
+        return ET.parse(f)</code></pre>
+</details>
+</dd>
+<dt id="lib.paper.Paper.remove_annotation_layer"><code class="name flex">
+<span>def <span class="ident">remove_annotation_layer</span></span>(<span>self, session, layer_id: str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Remove annotation layer from paper.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def remove_annotation_layer(self, session, layer_id: str):
+    &#34;&#34;&#34;Remove annotation layer from paper.&#34;&#34;&#34;
+    location = f&#34;{self.meta_path}/annot_{layer_id}.json&#34;
+    try:
+        os.remove(location + &#34;.bz2&#34;)
+    except Exception:
+        print(&#34;exception when deleted: &#34;, location)
+
+    session.delete(self.get_annotation_info(layer_id))</code></pre>
+</details>
+</dd>
+<dt id="lib.paper.Paper.render"><code class="name flex">
+<span>def <span class="ident">render</span></span>(<span>self, max_height: int = None, max_width: int = None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Render document as a list of numpy arrays.</p>
+<p>Also returns the scales used.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def render(self, max_height: int = None, max_width: int = None):
+    &#34;&#34;&#34;Render document as a list of numpy arrays.
+    
+    Also returns the scales used.
+    &#34;&#34;&#34;
+    doc = fitz.open(self.pdf_path)
+    pages = []
+    for page in doc:
+        scale = 1
+        if max_height is not None:
+            scale = max_height / page.bound().height
+        if max_width is not None:
+            scale = min(scale, max_width / page.bound().width)
+
+        pix = page.getPixmap(matrix=fitz.Matrix(scale, scale))
+        im = np.frombuffer(pix.samples, dtype=np.uint8).reshape(pix.h, pix.w, pix.n)
+        pages.append((im, scale))
+    return pages</code></pre>
+</details>
+</dd>
+<dt id="lib.paper.Paper.to_web"><code class="name flex">
+<span>def <span class="ident">to_web</span></span>(<span>self, classes: List[str]) ‑> dict</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Serialize paper.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def to_web(self, classes: List[str]) -&gt; dict:
+    &#34;&#34;&#34;Serialize paper.&#34;&#34;&#34;
+    class_status = {k: {&#34;count&#34;: 0} for k in classes}
+    for layer in self.layers:
+        class_ = layer.class_
+        class_status[class_][&#34;count&#34;] += 1
+
+    if self.title == &#34;__undef__&#34;:
+        self._refresh_title()
+
+    return {
+        &#34;id&#34;: self.id,
+        &#34;pdf&#34;: f&#34;/papers/{self.id}/pdf&#34;,
+        &#34;classStatus&#34;: class_status,
+        &#34;title&#34;: self.title or &#34;&#34;,
+    }</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="lib.paper.ParentModelNotFoundException"><code class="flex name class">
+<span>class <span class="ident">ParentModelNotFoundException</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Common base class for all non-exit exceptions.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class ParentModelNotFoundException(Exception):
+    kind: str</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="lib.paper.ParentModelNotFoundException.kind"><code class="name">var <span class="ident">kind</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul>
+<li><a href="#papers-and-annotation-metadata">Papers and annotation metadata</a></li>
+</ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="lib" href="../index.html">lib</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-submodules">Sub-modules</a></h3>
+<ul>
+<li><code><a title="lib.paper.features" href="features.html">lib.paper.features</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="lib.paper.AnnotationLayerInfo" href="#lib.paper.AnnotationLayerInfo">AnnotationLayerInfo</a></code></h4>
+<ul class="two-column">
+<li><code><a title="lib.paper.AnnotationLayerInfo.class_" href="#lib.paper.AnnotationLayerInfo.class_">class_</a></code></li>
+<li><code><a title="lib.paper.AnnotationLayerInfo.date" href="#lib.paper.AnnotationLayerInfo.date">date</a></code></li>
+<li><code><a title="lib.paper.AnnotationLayerInfo.id" href="#lib.paper.AnnotationLayerInfo.id">id</a></code></li>
+<li><code><a title="lib.paper.AnnotationLayerInfo.paper" href="#lib.paper.AnnotationLayerInfo.paper">paper</a></code></li>
+<li><code><a title="lib.paper.AnnotationLayerInfo.paper_id" href="#lib.paper.AnnotationLayerInfo.paper_id">paper_id</a></code></li>
+<li><code><a title="lib.paper.AnnotationLayerInfo.tags" href="#lib.paper.AnnotationLayerInfo.tags">tags</a></code></li>
+<li><code><a title="lib.paper.AnnotationLayerInfo.to_web" href="#lib.paper.AnnotationLayerInfo.to_web">to_web</a></code></li>
+<li><code><a title="lib.paper.AnnotationLayerInfo.training" href="#lib.paper.AnnotationLayerInfo.training">training</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="lib.paper.AnnotationLayerTag" href="#lib.paper.AnnotationLayerTag">AnnotationLayerTag</a></code></h4>
+<ul class="two-column">
+<li><code><a title="lib.paper.AnnotationLayerTag.data" href="#lib.paper.AnnotationLayerTag.data">data</a></code></li>
+<li><code><a title="lib.paper.AnnotationLayerTag.data_str" href="#lib.paper.AnnotationLayerTag.data_str">data_str</a></code></li>
+<li><code><a title="lib.paper.AnnotationLayerTag.id" href="#lib.paper.AnnotationLayerTag.id">id</a></code></li>
+<li><code><a title="lib.paper.AnnotationLayerTag.layers" href="#lib.paper.AnnotationLayerTag.layers">layers</a></code></li>
+<li><code><a title="lib.paper.AnnotationLayerTag.name" href="#lib.paper.AnnotationLayerTag.name">name</a></code></li>
+<li><code><a title="lib.paper.AnnotationLayerTag.readonly" href="#lib.paper.AnnotationLayerTag.readonly">readonly</a></code></li>
+<li><code><a title="lib.paper.AnnotationLayerTag.to_web" href="#lib.paper.AnnotationLayerTag.to_web">to_web</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="lib.paper.Paper" href="#lib.paper.Paper">Paper</a></code></h4>
+<ul class="">
+<li><code><a title="lib.paper.Paper.add_annotation_layer" href="#lib.paper.Paper.add_annotation_layer">add_annotation_layer</a></code></li>
+<li><code><a title="lib.paper.Paper.apply_annotations_on" href="#lib.paper.Paper.apply_annotations_on">apply_annotations_on</a></code></li>
+<li><code><a title="lib.paper.Paper.extract_raw_text" href="#lib.paper.Paper.extract_raw_text">extract_raw_text</a></code></li>
+<li><code><a title="lib.paper.Paper.get_annotation_info" href="#lib.paper.Paper.get_annotation_info">get_annotation_info</a></code></li>
+<li><code><a title="lib.paper.Paper.get_annotation_layer" href="#lib.paper.Paper.get_annotation_layer">get_annotation_layer</a></code></li>
+<li><code><a title="lib.paper.Paper.get_best_layer" href="#lib.paper.Paper.get_best_layer">get_best_layer</a></code></li>
+<li><code><a title="lib.paper.Paper.get_box_validator" href="#lib.paper.Paper.get_box_validator">get_box_validator</a></code></li>
+<li><code><a title="lib.paper.Paper.get_features" href="#lib.paper.Paper.get_features">get_features</a></code></li>
+<li><code><a title="lib.paper.Paper.get_pdf_annotations" href="#lib.paper.Paper.get_pdf_annotations">get_pdf_annotations</a></code></li>
+<li><code><a title="lib.paper.Paper.get_render_scales" href="#lib.paper.Paper.get_render_scales">get_render_scales</a></code></li>
+<li><code><a title="lib.paper.Paper.get_xml" href="#lib.paper.Paper.get_xml">get_xml</a></code></li>
+<li><code><a title="lib.paper.Paper.id" href="#lib.paper.Paper.id">id</a></code></li>
+<li><code><a title="lib.paper.Paper.layers" href="#lib.paper.Paper.layers">layers</a></code></li>
+<li><code><a title="lib.paper.Paper.meta_path" href="#lib.paper.Paper.meta_path">meta_path</a></code></li>
+<li><code><a title="lib.paper.Paper.metadata_directory" href="#lib.paper.Paper.metadata_directory">metadata_directory</a></code></li>
+<li><code><a title="lib.paper.Paper.n_pages" href="#lib.paper.Paper.n_pages">n_pages</a></code></li>
+<li><code><a title="lib.paper.Paper.pdf_path" href="#lib.paper.Paper.pdf_path">pdf_path</a></code></li>
+<li><code><a title="lib.paper.Paper.remove_annotation_layer" href="#lib.paper.Paper.remove_annotation_layer">remove_annotation_layer</a></code></li>
+<li><code><a title="lib.paper.Paper.render" href="#lib.paper.Paper.render">render</a></code></li>
+<li><code><a title="lib.paper.Paper.title" href="#lib.paper.Paper.title">title</a></code></li>
+<li><code><a title="lib.paper.Paper.to_web" href="#lib.paper.Paper.to_web">to_web</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="lib.paper.ParentModelNotFoundException" href="#lib.paper.ParentModelNotFoundException">ParentModelNotFoundException</a></code></h4>
+<ul class="">
+<li><code><a title="lib.paper.ParentModelNotFoundException.kind" href="#lib.paper.ParentModelNotFoundException.kind">kind</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.9.1</a>.</p>
+</footer>
+</body>
+</html>

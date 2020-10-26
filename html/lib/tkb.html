@@ -1,0 +1,764 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.9.1" />
+<title>lib.tkb API documentation</title>
+<meta name="description" content="TheoremKB management class …" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>lib.tkb</code></h1>
+</header>
+<section id="section-intro">
+<h2 id="theoremkb-management-class">TheoremKB management class</h2>
+<p>Entrypoint functions and registering of annotation classes and extractors.</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#34;&#34;&#34;## TheoremKB management class
+
+Entrypoint functions and registering of annotation classes and extractors.
+&#34;&#34;&#34;
+from __future__ import annotations
+
+import json
+from typing import Dict, List, Optional, Tuple
+from sqlalchemy.orm import Session
+from sqlalchemy import func
+
+from .config import config
+from .misc.namespaces import *
+from .classes import ALL_CLASSES, AnnotationClass
+from .paper import Paper, AnnotationLayerInfo, AnnotationLayerTag, Base
+from .extractors import Extractor
+from .extractors.misc.features import FeatureExtractor
+from .extractors.misc.aggreement import AgreementExtractor
+from .extractors.crf import CRFExtractor
+from .extractors.results import ResultsLatexExtractor, ResultsNaiveExtractor
+
+
+class TheoremKB:
+    &#34;&#34;&#34;TheoremKB main class. It&#39;s the interface between the database (SQLAlchemy) and the abstractions.
+    To use it, you will mostly need a `Session`.
+
+    Example:
+    ```
+    from sqlalchemy.orm import sessionmaker,scoped_session  # DB
+    from lib.tkb import TheoremKB                           # TKB
+    from lib.config import SQL_ENGINE                       # SQL DB location
+
+    session_factory = sessionmaker(bind=SQL_ENGINE)  #
+    Session = scoped_session(session_factory)        #
+    session = Session()                              # build session
+
+    tkb = TheoremKB()                                # create TKB instance
+    tkb.add_paper(session, ...)                      # create paper
+    paper = tkb.get_paper(session, ...)              # get paper
+    ann_meta = paper.add_annotation_layer(&#34;results&#34;) # create annotation layer of results class
+    ann = paper.get_annotation_layer(ann_meta.id)    # obtain layer instance
+    ann.add_box(...)
+    ann.save()                # save `ann` changes to file.
+    session.commit()          # save `paper` and `ann_meta` creation to DB.
+    ``` 
+    &#34;&#34;&#34;
+
+    prefix: str
+    &#34;&#34;&#34;Where the data is stored.&#34;&#34;&#34;
+    classes: Dict[str, AnnotationClass]
+    &#34;&#34;&#34;Annotation classes.&#34;&#34;&#34;
+    extractors: Dict[str, Extractor]
+    &#34;&#34;&#34;Annotation extractors.&#34;&#34;&#34;
+
+    def __init__(self) -&gt; None:
+        self.prefix = config.DATA_PATH
+
+        self.classes = {}
+        for l in ALL_CLASSES:
+            self.classes[l.name] = l
+
+        extractors = []
+
+        extractors.append(FeatureExtractor(&#34;TextLine&#34;))
+        extractors.append(FeatureExtractor(&#34;String&#34;))
+        extractors.append(FeatureExtractor(&#34;TextBlock&#34;))
+        extractors.append(AgreementExtractor())
+        extractors.append(ResultsLatexExtractor())
+        extractors.append(ResultsNaiveExtractor())
+
+        for l in ALL_CLASSES:
+            if len(l.labels) == 0:
+                continue
+
+            extractors.append(
+                CRFExtractor(
+                    self.prefix, name=&#34;line&#34;, class_=l, target=f&#34;{ALTO}TextLine&#34;
+                )
+            )
+            extractors.append(
+                CRFExtractor(self.prefix, name=&#34;str&#34;, class_=l, target=f&#34;{ALTO}String&#34;)
+            )
+
+            if config.ENABLE_TENSORFLOW:
+                from .extractors.cnn import CNNExtractor
+                from .extractors.cnn1d import CNN1DExtractor
+
+                extractors.append(CNNExtractor(self.prefix, name=&#34;&#34;, class_=l))
+                extractors.append(CNN1DExtractor(self.prefix, name=&#34;&#34;, class_=l))
+
+        self.extractors = {}
+        for e in extractors:
+            self.extractors[f&#34;{e.class_.name}.{e.name}&#34;] = e
+
+        Base.metadata.create_all(config.SQL_ENGINE)
+
+    def get_paper(self, session: Session, id: str) -&gt; Optional[Paper]:
+        &#34;&#34;&#34;Get paper class instance for requested ID.&#34;&#34;&#34;
+        return session.query(Paper).get(id)
+
+    def get_layer(self, session: Session, id: str) -&gt; Optional[AnnotationLayerInfo]:
+        &#34;&#34;&#34;Get layer metadata instance given ID.&#34;&#34;&#34;
+        return session.query(AnnotationLayerInfo).get(id)
+
+    def list_papers(
+        self,
+        session: Session,
+        offset: Optional[int] = None,
+        limit: Optional[int] = None,
+        search: Optional[List[Tuple[str, str]]] = None,
+        order_by_asc: Optional[Tuple[str, bool]] = None,
+        count: bool = False,
+    ) -&gt; List[Paper]:
+        &#34;&#34;&#34;Paper query.&#34;&#34;&#34;
+        req = session.query(Paper)
+
+        valid_ann_layers = []
+
+        if search is not None:
+            for field, value in search:
+                if field == &#34;Paper.title&#34;:
+                    req = req.filter(Paper.title.ilike(f&#34;%%{value}%%&#34;))
+                elif field.startswith(&#34;Paper.layers.tag&#34;):
+                    valid_ann_layers.append(value)
+
+        if len(valid_ann_layers) &gt; 0:
+            valid_tags = (
+                session.query(AnnotationLayerTag)
+                .filter(AnnotationLayerTag.id.in_(valid_ann_layers))
+                .subquery()
+            )
+
+            valid_layers = (
+                session.query(AnnotationLayerInfo)
+                .join(valid_tags, AnnotationLayerInfo.tags)
+                .subquery()
+            )
+
+            req = req.join(valid_layers)
+
+        if order_by_asc is not None:
+            order_by, asc = order_by_asc
+            prop = None
+            if order_by == &#34;Paper.title&#34;:
+                prop = Paper.title
+            elif order_by == &#34;Paper.id&#34;:
+                prop = Paper.id
+
+            if prop is not None:
+                if asc:
+                    req = req.order_by(prop.asc())
+                else:
+                    req = req.order_by(prop.desc())
+
+        if count:
+            return req.count()
+        else:
+            if offset is not None:
+                req = req.offset(offset)
+            if limit is not None:
+                req = req.limit(limit)
+            return req.all()
+
+    def list_layer_tags(self, session: Session) -&gt; List[AnnotationLayerTag]:
+        &#34;&#34;&#34;List annotation layer tags.&#34;&#34;&#34;
+        return session.query(AnnotationLayerTag).all()
+
+    def count_layer_tags(
+        self, session: Session
+    ) -&gt; Dict[str, Tuple[AnnotationLayerTag, Dict[str, int]]]:
+        &#34;&#34;&#34;List annotation layer tags and count layers that have them.&#34;&#34;&#34;
+
+        tags_with_counts = (
+            session.query(AnnotationLayerTag, AnnotationLayerInfo.class_, func.count())
+            .join(AnnotationLayerTag, AnnotationLayerInfo.tags)
+            .group_by(AnnotationLayerInfo.class_, AnnotationLayerTag.id)
+        )
+
+        res = {t.id: (t, {}) for t in session.query(AnnotationLayerTag).all()}
+
+        for (tag, class_, count) in tags_with_counts:
+            res[tag.id][1][class_] = count
+
+        return res
+
+    def get_layer_tag(self, session: Session, tag_id: str):
+        &#34;&#34;&#34;Retrieve given layer tag.&#34;&#34;&#34;
+        return session.query(AnnotationLayerTag).get(tag_id)
+
+    def add_layer_tag(
+        self,
+        session: Session,
+        id: str,
+        name: str,
+        readonly: bool,
+        data: dict,
+    ):
+        &#34;&#34;&#34;Create new layer tag.&#34;&#34;&#34;
+        new_tag = AnnotationLayerTag(
+            id=id,
+            name=name,
+            readonly=readonly,
+            data_str=json.dumps(data),
+        )
+
+        session.add(new_tag)
+
+        return new_tag
+
+    def add_paper(self, session: Session, id: str, pdf_path: str) -&gt; Paper:
+        &#34;&#34;&#34;Create new paper.&#34;&#34;&#34;
+        paper = Paper(id=id, pdf_path=pdf_path)
+        session.add(paper)
+        return paper
+
+    def delete_paper(self, session: Session, id: str):
+        &#34;&#34;&#34;Delete paper from database.&#34;&#34;&#34;
+        paper = session.query(Paper).get(id)
+        session.delete(paper)</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="lib.tkb.TheoremKB"><code class="flex name class">
+<span>class <span class="ident">TheoremKB</span></span>
+</code></dt>
+<dd>
+<div class="desc"><p>TheoremKB main class. It's the interface between the database (SQLAlchemy) and the abstractions.
+To use it, you will mostly need a <code>Session</code>.</p>
+<p>Example:</p>
+<pre><code>from sqlalchemy.orm import sessionmaker,scoped_session  # DB
+from lib.tkb import TheoremKB                           # TKB
+from lib.config import SQL_ENGINE                       # SQL DB location
+
+session_factory = sessionmaker(bind=SQL_ENGINE)  #
+Session = scoped_session(session_factory)        #
+session = Session()                              # build session
+
+tkb = TheoremKB()                                # create TKB instance
+tkb.add_paper(session, ...)                      # create paper
+paper = tkb.get_paper(session, ...)              # get paper
+ann_meta = paper.add_annotation_layer(&quot;results&quot;) # create annotation layer of results class
+ann = paper.get_annotation_layer(ann_meta.id)    # obtain layer instance
+ann.add_box(...)
+ann.save()                # save `ann` changes to file.
+session.commit()          # save `paper` and `ann_meta` creation to DB.
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class TheoremKB:
+    &#34;&#34;&#34;TheoremKB main class. It&#39;s the interface between the database (SQLAlchemy) and the abstractions.
+    To use it, you will mostly need a `Session`.
+
+    Example:
+    ```
+    from sqlalchemy.orm import sessionmaker,scoped_session  # DB
+    from lib.tkb import TheoremKB                           # TKB
+    from lib.config import SQL_ENGINE                       # SQL DB location
+
+    session_factory = sessionmaker(bind=SQL_ENGINE)  #
+    Session = scoped_session(session_factory)        #
+    session = Session()                              # build session
+
+    tkb = TheoremKB()                                # create TKB instance
+    tkb.add_paper(session, ...)                      # create paper
+    paper = tkb.get_paper(session, ...)              # get paper
+    ann_meta = paper.add_annotation_layer(&#34;results&#34;) # create annotation layer of results class
+    ann = paper.get_annotation_layer(ann_meta.id)    # obtain layer instance
+    ann.add_box(...)
+    ann.save()                # save `ann` changes to file.
+    session.commit()          # save `paper` and `ann_meta` creation to DB.
+    ``` 
+    &#34;&#34;&#34;
+
+    prefix: str
+    &#34;&#34;&#34;Where the data is stored.&#34;&#34;&#34;
+    classes: Dict[str, AnnotationClass]
+    &#34;&#34;&#34;Annotation classes.&#34;&#34;&#34;
+    extractors: Dict[str, Extractor]
+    &#34;&#34;&#34;Annotation extractors.&#34;&#34;&#34;
+
+    def __init__(self) -&gt; None:
+        self.prefix = config.DATA_PATH
+
+        self.classes = {}
+        for l in ALL_CLASSES:
+            self.classes[l.name] = l
+
+        extractors = []
+
+        extractors.append(FeatureExtractor(&#34;TextLine&#34;))
+        extractors.append(FeatureExtractor(&#34;String&#34;))
+        extractors.append(FeatureExtractor(&#34;TextBlock&#34;))
+        extractors.append(AgreementExtractor())
+        extractors.append(ResultsLatexExtractor())
+        extractors.append(ResultsNaiveExtractor())
+
+        for l in ALL_CLASSES:
+            if len(l.labels) == 0:
+                continue
+
+            extractors.append(
+                CRFExtractor(
+                    self.prefix, name=&#34;line&#34;, class_=l, target=f&#34;{ALTO}TextLine&#34;
+                )
+            )
+            extractors.append(
+                CRFExtractor(self.prefix, name=&#34;str&#34;, class_=l, target=f&#34;{ALTO}String&#34;)
+            )
+
+            if config.ENABLE_TENSORFLOW:
+                from .extractors.cnn import CNNExtractor
+                from .extractors.cnn1d import CNN1DExtractor
+
+                extractors.append(CNNExtractor(self.prefix, name=&#34;&#34;, class_=l))
+                extractors.append(CNN1DExtractor(self.prefix, name=&#34;&#34;, class_=l))
+
+        self.extractors = {}
+        for e in extractors:
+            self.extractors[f&#34;{e.class_.name}.{e.name}&#34;] = e
+
+        Base.metadata.create_all(config.SQL_ENGINE)
+
+    def get_paper(self, session: Session, id: str) -&gt; Optional[Paper]:
+        &#34;&#34;&#34;Get paper class instance for requested ID.&#34;&#34;&#34;
+        return session.query(Paper).get(id)
+
+    def get_layer(self, session: Session, id: str) -&gt; Optional[AnnotationLayerInfo]:
+        &#34;&#34;&#34;Get layer metadata instance given ID.&#34;&#34;&#34;
+        return session.query(AnnotationLayerInfo).get(id)
+
+    def list_papers(
+        self,
+        session: Session,
+        offset: Optional[int] = None,
+        limit: Optional[int] = None,
+        search: Optional[List[Tuple[str, str]]] = None,
+        order_by_asc: Optional[Tuple[str, bool]] = None,
+        count: bool = False,
+    ) -&gt; List[Paper]:
+        &#34;&#34;&#34;Paper query.&#34;&#34;&#34;
+        req = session.query(Paper)
+
+        valid_ann_layers = []
+
+        if search is not None:
+            for field, value in search:
+                if field == &#34;Paper.title&#34;:
+                    req = req.filter(Paper.title.ilike(f&#34;%%{value}%%&#34;))
+                elif field.startswith(&#34;Paper.layers.tag&#34;):
+                    valid_ann_layers.append(value)
+
+        if len(valid_ann_layers) &gt; 0:
+            valid_tags = (
+                session.query(AnnotationLayerTag)
+                .filter(AnnotationLayerTag.id.in_(valid_ann_layers))
+                .subquery()
+            )
+
+            valid_layers = (
+                session.query(AnnotationLayerInfo)
+                .join(valid_tags, AnnotationLayerInfo.tags)
+                .subquery()
+            )
+
+            req = req.join(valid_layers)
+
+        if order_by_asc is not None:
+            order_by, asc = order_by_asc
+            prop = None
+            if order_by == &#34;Paper.title&#34;:
+                prop = Paper.title
+            elif order_by == &#34;Paper.id&#34;:
+                prop = Paper.id
+
+            if prop is not None:
+                if asc:
+                    req = req.order_by(prop.asc())
+                else:
+                    req = req.order_by(prop.desc())
+
+        if count:
+            return req.count()
+        else:
+            if offset is not None:
+                req = req.offset(offset)
+            if limit is not None:
+                req = req.limit(limit)
+            return req.all()
+
+    def list_layer_tags(self, session: Session) -&gt; List[AnnotationLayerTag]:
+        &#34;&#34;&#34;List annotation layer tags.&#34;&#34;&#34;
+        return session.query(AnnotationLayerTag).all()
+
+    def count_layer_tags(
+        self, session: Session
+    ) -&gt; Dict[str, Tuple[AnnotationLayerTag, Dict[str, int]]]:
+        &#34;&#34;&#34;List annotation layer tags and count layers that have them.&#34;&#34;&#34;
+
+        tags_with_counts = (
+            session.query(AnnotationLayerTag, AnnotationLayerInfo.class_, func.count())
+            .join(AnnotationLayerTag, AnnotationLayerInfo.tags)
+            .group_by(AnnotationLayerInfo.class_, AnnotationLayerTag.id)
+        )
+
+        res = {t.id: (t, {}) for t in session.query(AnnotationLayerTag).all()}
+
+        for (tag, class_, count) in tags_with_counts:
+            res[tag.id][1][class_] = count
+
+        return res
+
+    def get_layer_tag(self, session: Session, tag_id: str):
+        &#34;&#34;&#34;Retrieve given layer tag.&#34;&#34;&#34;
+        return session.query(AnnotationLayerTag).get(tag_id)
+
+    def add_layer_tag(
+        self,
+        session: Session,
+        id: str,
+        name: str,
+        readonly: bool,
+        data: dict,
+    ):
+        &#34;&#34;&#34;Create new layer tag.&#34;&#34;&#34;
+        new_tag = AnnotationLayerTag(
+            id=id,
+            name=name,
+            readonly=readonly,
+            data_str=json.dumps(data),
+        )
+
+        session.add(new_tag)
+
+        return new_tag
+
+    def add_paper(self, session: Session, id: str, pdf_path: str) -&gt; Paper:
+        &#34;&#34;&#34;Create new paper.&#34;&#34;&#34;
+        paper = Paper(id=id, pdf_path=pdf_path)
+        session.add(paper)
+        return paper
+
+    def delete_paper(self, session: Session, id: str):
+        &#34;&#34;&#34;Delete paper from database.&#34;&#34;&#34;
+        paper = session.query(Paper).get(id)
+        session.delete(paper)</code></pre>
+</details>
+<h3>Class variables</h3>
+<dl>
+<dt id="lib.tkb.TheoremKB.classes"><code class="name">var <span class="ident">classes</span> : Dict[str, <a title="lib.classes.AnnotationClass" href="classes/index.html#lib.classes.AnnotationClass">AnnotationClass</a>]</code></dt>
+<dd>
+<div class="desc"><p>Annotation classes.</p></div>
+</dd>
+<dt id="lib.tkb.TheoremKB.extractors"><code class="name">var <span class="ident">extractors</span> : Dict[str, <a title="lib.extractors.Extractor" href="extractors/index.html#lib.extractors.Extractor">Extractor</a>]</code></dt>
+<dd>
+<div class="desc"><p>Annotation extractors.</p></div>
+</dd>
+<dt id="lib.tkb.TheoremKB.prefix"><code class="name">var <span class="ident">prefix</span> : str</code></dt>
+<dd>
+<div class="desc"><p>Where the data is stored.</p></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="lib.tkb.TheoremKB.add_layer_tag"><code class="name flex">
+<span>def <span class="ident">add_layer_tag</span></span>(<span>self, session: Session, id: str, name: str, readonly: bool, data: dict)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Create new layer tag.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def add_layer_tag(
+    self,
+    session: Session,
+    id: str,
+    name: str,
+    readonly: bool,
+    data: dict,
+):
+    &#34;&#34;&#34;Create new layer tag.&#34;&#34;&#34;
+    new_tag = AnnotationLayerTag(
+        id=id,
+        name=name,
+        readonly=readonly,
+        data_str=json.dumps(data),
+    )
+
+    session.add(new_tag)
+
+    return new_tag</code></pre>
+</details>
+</dd>
+<dt id="lib.tkb.TheoremKB.add_paper"><code class="name flex">
+<span>def <span class="ident">add_paper</span></span>(<span>self, session: Session, id: str, pdf_path: str) ‑> <a title="lib.paper.Paper" href="paper/index.html#lib.paper.Paper">Paper</a></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Create new paper.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def add_paper(self, session: Session, id: str, pdf_path: str) -&gt; Paper:
+    &#34;&#34;&#34;Create new paper.&#34;&#34;&#34;
+    paper = Paper(id=id, pdf_path=pdf_path)
+    session.add(paper)
+    return paper</code></pre>
+</details>
+</dd>
+<dt id="lib.tkb.TheoremKB.count_layer_tags"><code class="name flex">
+<span>def <span class="ident">count_layer_tags</span></span>(<span>self, session: Session) ‑> Dict[str, Tuple[<a title="lib.paper.AnnotationLayerTag" href="paper/index.html#lib.paper.AnnotationLayerTag">AnnotationLayerTag</a>, Dict[str, int]]]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>List annotation layer tags and count layers that have them.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def count_layer_tags(
+    self, session: Session
+) -&gt; Dict[str, Tuple[AnnotationLayerTag, Dict[str, int]]]:
+    &#34;&#34;&#34;List annotation layer tags and count layers that have them.&#34;&#34;&#34;
+
+    tags_with_counts = (
+        session.query(AnnotationLayerTag, AnnotationLayerInfo.class_, func.count())
+        .join(AnnotationLayerTag, AnnotationLayerInfo.tags)
+        .group_by(AnnotationLayerInfo.class_, AnnotationLayerTag.id)
+    )
+
+    res = {t.id: (t, {}) for t in session.query(AnnotationLayerTag).all()}
+
+    for (tag, class_, count) in tags_with_counts:
+        res[tag.id][1][class_] = count
+
+    return res</code></pre>
+</details>
+</dd>
+<dt id="lib.tkb.TheoremKB.delete_paper"><code class="name flex">
+<span>def <span class="ident">delete_paper</span></span>(<span>self, session: Session, id: str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Delete paper from database.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def delete_paper(self, session: Session, id: str):
+    &#34;&#34;&#34;Delete paper from database.&#34;&#34;&#34;
+    paper = session.query(Paper).get(id)
+    session.delete(paper)</code></pre>
+</details>
+</dd>
+<dt id="lib.tkb.TheoremKB.get_layer"><code class="name flex">
+<span>def <span class="ident">get_layer</span></span>(<span>self, session: Session, id: str) ‑> Union[<a title="lib.paper.AnnotationLayerInfo" href="paper/index.html#lib.paper.AnnotationLayerInfo">AnnotationLayerInfo</a>, NoneType]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Get layer metadata instance given ID.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_layer(self, session: Session, id: str) -&gt; Optional[AnnotationLayerInfo]:
+    &#34;&#34;&#34;Get layer metadata instance given ID.&#34;&#34;&#34;
+    return session.query(AnnotationLayerInfo).get(id)</code></pre>
+</details>
+</dd>
+<dt id="lib.tkb.TheoremKB.get_layer_tag"><code class="name flex">
+<span>def <span class="ident">get_layer_tag</span></span>(<span>self, session: Session, tag_id: str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Retrieve given layer tag.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_layer_tag(self, session: Session, tag_id: str):
+    &#34;&#34;&#34;Retrieve given layer tag.&#34;&#34;&#34;
+    return session.query(AnnotationLayerTag).get(tag_id)</code></pre>
+</details>
+</dd>
+<dt id="lib.tkb.TheoremKB.get_paper"><code class="name flex">
+<span>def <span class="ident">get_paper</span></span>(<span>self, session: Session, id: str) ‑> Union[<a title="lib.paper.Paper" href="paper/index.html#lib.paper.Paper">Paper</a>, NoneType]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Get paper class instance for requested ID.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_paper(self, session: Session, id: str) -&gt; Optional[Paper]:
+    &#34;&#34;&#34;Get paper class instance for requested ID.&#34;&#34;&#34;
+    return session.query(Paper).get(id)</code></pre>
+</details>
+</dd>
+<dt id="lib.tkb.TheoremKB.list_layer_tags"><code class="name flex">
+<span>def <span class="ident">list_layer_tags</span></span>(<span>self, session: Session) ‑> List[<a title="lib.paper.AnnotationLayerTag" href="paper/index.html#lib.paper.AnnotationLayerTag">AnnotationLayerTag</a>]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>List annotation layer tags.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def list_layer_tags(self, session: Session) -&gt; List[AnnotationLayerTag]:
+    &#34;&#34;&#34;List annotation layer tags.&#34;&#34;&#34;
+    return session.query(AnnotationLayerTag).all()</code></pre>
+</details>
+</dd>
+<dt id="lib.tkb.TheoremKB.list_papers"><code class="name flex">
+<span>def <span class="ident">list_papers</span></span>(<span>self, session: Session, offset: Optional[int] = None, limit: Optional[int] = None, search: Optional[List[Tuple[str, str]]] = None, order_by_asc: Optional[Tuple[str, bool]] = None, count: bool = False) ‑> List[<a title="lib.paper.Paper" href="paper/index.html#lib.paper.Paper">Paper</a>]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Paper query.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def list_papers(
+    self,
+    session: Session,
+    offset: Optional[int] = None,
+    limit: Optional[int] = None,
+    search: Optional[List[Tuple[str, str]]] = None,
+    order_by_asc: Optional[Tuple[str, bool]] = None,
+    count: bool = False,
+) -&gt; List[Paper]:
+    &#34;&#34;&#34;Paper query.&#34;&#34;&#34;
+    req = session.query(Paper)
+
+    valid_ann_layers = []
+
+    if search is not None:
+        for field, value in search:
+            if field == &#34;Paper.title&#34;:
+                req = req.filter(Paper.title.ilike(f&#34;%%{value}%%&#34;))
+            elif field.startswith(&#34;Paper.layers.tag&#34;):
+                valid_ann_layers.append(value)
+
+    if len(valid_ann_layers) &gt; 0:
+        valid_tags = (
+            session.query(AnnotationLayerTag)
+            .filter(AnnotationLayerTag.id.in_(valid_ann_layers))
+            .subquery()
+        )
+
+        valid_layers = (
+            session.query(AnnotationLayerInfo)
+            .join(valid_tags, AnnotationLayerInfo.tags)
+            .subquery()
+        )
+
+        req = req.join(valid_layers)
+
+    if order_by_asc is not None:
+        order_by, asc = order_by_asc
+        prop = None
+        if order_by == &#34;Paper.title&#34;:
+            prop = Paper.title
+        elif order_by == &#34;Paper.id&#34;:
+            prop = Paper.id
+
+        if prop is not None:
+            if asc:
+                req = req.order_by(prop.asc())
+            else:
+                req = req.order_by(prop.desc())
+
+    if count:
+        return req.count()
+    else:
+        if offset is not None:
+            req = req.offset(offset)
+        if limit is not None:
+            req = req.limit(limit)
+        return req.all()</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul>
+<li><a href="#theoremkb-management-class">TheoremKB management class</a></li>
+</ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="lib" href="index.html">lib</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="lib.tkb.TheoremKB" href="#lib.tkb.TheoremKB">TheoremKB</a></code></h4>
+<ul class="two-column">
+<li><code><a title="lib.tkb.TheoremKB.add_layer_tag" href="#lib.tkb.TheoremKB.add_layer_tag">add_layer_tag</a></code></li>
+<li><code><a title="lib.tkb.TheoremKB.add_paper" href="#lib.tkb.TheoremKB.add_paper">add_paper</a></code></li>
+<li><code><a title="lib.tkb.TheoremKB.classes" href="#lib.tkb.TheoremKB.classes">classes</a></code></li>
+<li><code><a title="lib.tkb.TheoremKB.count_layer_tags" href="#lib.tkb.TheoremKB.count_layer_tags">count_layer_tags</a></code></li>
+<li><code><a title="lib.tkb.TheoremKB.delete_paper" href="#lib.tkb.TheoremKB.delete_paper">delete_paper</a></code></li>
+<li><code><a title="lib.tkb.TheoremKB.extractors" href="#lib.tkb.TheoremKB.extractors">extractors</a></code></li>
+<li><code><a title="lib.tkb.TheoremKB.get_layer" href="#lib.tkb.TheoremKB.get_layer">get_layer</a></code></li>
+<li><code><a title="lib.tkb.TheoremKB.get_layer_tag" href="#lib.tkb.TheoremKB.get_layer_tag">get_layer_tag</a></code></li>
+<li><code><a title="lib.tkb.TheoremKB.get_paper" href="#lib.tkb.TheoremKB.get_paper">get_paper</a></code></li>
+<li><code><a title="lib.tkb.TheoremKB.list_layer_tags" href="#lib.tkb.TheoremKB.list_layer_tags">list_layer_tags</a></code></li>
+<li><code><a title="lib.tkb.TheoremKB.list_papers" href="#lib.tkb.TheoremKB.list_papers">list_papers</a></code></li>
+<li><code><a title="lib.tkb.TheoremKB.prefix" href="#lib.tkb.TheoremKB.prefix">prefix</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.9.1</a>.</p>
+</footer>
+</body>
+</html>

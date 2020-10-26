@@ -1,0 +1,777 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.9.1" />
+<title>lib.misc.bounding_box API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>lib.misc.bounding_box</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">from __future__ import annotations
+
+from copy import copy
+from typing import List, Optional, Any, TypeVar
+from lxml import etree as ET
+
+from ..misc.namespaces import *
+
+T = TypeVar(&#34;T&#34;, bound=&#34;BBX&#34;)
+
+
+class BBX:
+    &#34;&#34;&#34;
+    Bounding box in a PDF.
+    &#34;&#34;&#34;
+
+    page_num: int
+    min_h: float
+    min_v: float
+    max_h: float
+    max_v: float
+
+    def __init__(
+        self: BBX, page_num: int, min_h: float, min_v: float, max_h: float, max_v: float
+    ):
+        self.page_num = page_num
+        self.min_h = min_h
+        self.min_v = min_v
+        self.max_h = max(min_h, max_h)
+        self.max_v = max(min_v, max_v)
+
+    def __str__(self: BBX) -&gt; str:
+        return f&#34;{self.min_h}-&gt;{self.max_h} | {self.min_v}-&gt;{self.max_v}&#34;
+
+    def contains(self: BBX, other: T):
+        &#34;&#34;&#34;
+        Check if this bounding box contains the other.
+        &#34;&#34;&#34;
+        return (
+            self.page_num == other.page_num
+            and other.min_h &gt;= self.min_h
+            and other.min_v &gt;= self.min_v
+            and other.max_h &lt;= self.max_h
+            and other.max_v &lt;= self.max_v
+        )
+
+    def intersects(self: BBX, other: T):
+        &#34;&#34;&#34;
+        Check if this bounding box intersects the other.
+        &#34;&#34;&#34;
+        return (
+            self.page_num == other.page_num
+            and other.max_h &gt;= self.min_h
+            and self.max_h &gt;= other.min_h
+            and other.max_v &gt;= self.min_v
+            and self.max_v &gt;= other.min_v
+        )
+
+    def group_with(
+        self: T, other: BBX, inplace: bool = True, extension: bool = False
+    ) -&gt; T:
+        &#34;&#34;&#34;
+        Merge two bounding boxes from the same page and compute extension.
+        &#34;&#34;&#34;
+        assert self.page_num == other.page_num
+
+        min_h = min(self.min_h, other.min_h)
+        min_v = min(self.min_v, other.min_v)
+        max_h = max(self.max_h, other.max_h)
+        max_v = max(self.max_v, other.max_v)
+
+        if extension:
+            exts = []
+            if min_h != self.min_h:
+                exts.append(BBX(self.page_num, min_h, min_v, self.min_h, max_v))
+            if min_v != self.min_v:
+                exts.append(BBX(self.page_num, min_h, min_v, max_h, self.min_v))
+            if max_h != self.max_h:
+                exts.append(BBX(self.page_num, self.max_h, min_v, max_h, max_v))
+            if max_v != self.max_v:
+                exts.append(BBX(self.page_num, min_h, self.max_v, max_h, max_v))
+
+        if not inplace:
+            self = copy(self)
+
+        self.min_h, self.min_v, self.max_h, self.max_v = min_h, min_v, max_h, max_v
+        if extension:
+            return self, exts
+        else:
+            return self
+
+    def surface(self: BBX) -&gt; float:
+        return (self.max_v - self.min_v) * (self.max_h - self.min_h)
+
+    def extend(self: T, d: float) -&gt; T:
+        copied = copy(self)
+        copied.min_h -= d
+        copied.max_h += d
+        copied.min_v -= d
+        copied.max_v += d
+        return copied
+
+    def to_coor(self: T) -&gt; List[float]:
+        return [self.min_h, self.min_v, self.max_h, self.max_v]
+
+    @staticmethod
+    def from_list(lst: List[T]) -&gt; T:
+        by_page = {}
+
+        for b in lst:
+            if b.page_num not in by_page:
+                by_page[b.page_num] = b
+            else:
+                by_page[b.page_num].group_with(b)
+
+        return by_page.values()
+
+    @staticmethod
+    def from_element(node: ET.Element) -&gt; BBX:
+        min_h, min_v = float(node.get(&#34;HPOS&#34;)), float(node.get(&#34;VPOS&#34;))
+        max_h, max_v = (
+            min_h + float(node.get(&#34;WIDTH&#34;, default=0)),
+            min_v + float(node.get(&#34;HEIGHT&#34;, default=0)),
+        )
+
+        while node.tag != f&#34;{ALTO}Page&#34;:
+            node = node.getparent()
+        page_num = int(node.get(&#34;PHYSICAL_IMG_NR&#34;))
+        return BBX(page_num, min_h, min_v, max_h, max_v)
+
+
+class LabelledBBX(BBX):
+    label: str
+    group: int
+    user_data: Optional[Any]
+
+    def __init__(
+        self,
+        label: str,
+        group: int,
+        page_num,
+        min_h,
+        min_v,
+        max_h,
+        max_v,
+        user_data=None,
+    ):
+        self.label = label
+        self.group = group
+        self.page_num = page_num
+        self.min_h = min_h
+        self.min_v = min_v
+        self.max_h = max_h
+        self.max_v = max_v
+        self.user_data = user_data
+
+    def __str__(self) -&gt; str:
+        return f&#34;{self.label}-{self.group}:{self.min_h}|{self.min_v}|{self.max_h}|{self.max_v}@{self.page_num}&#34;
+
+    @staticmethod
+    def from_bbx(bbx, label, group, user_data=None) -&gt; LabelledBBX:
+        return LabelledBBX(
+            label,
+            group,
+            bbx.page_num,
+            bbx.min_h,
+            bbx.min_v,
+            bbx.max_h,
+            bbx.max_v,
+            user_data,
+        )
+
+    def to_web(self, id: str, paperId: str, layerId: str) -&gt; dict:
+        res = {
+            &#34;id&#34;: id,
+            &#34;paperId&#34;: paperId,
+            &#34;layerId&#34;: layerId,
+            &#34;pageNum&#34;: self.page_num,
+            &#34;minH&#34;: self.min_h,
+            &#34;minV&#34;: self.min_v,
+            &#34;maxH&#34;: self.max_h,
+            &#34;maxV&#34;: self.max_v,
+            &#34;label&#34;: self.label,
+            &#34;group&#34;: self.group,
+        }
+
+        if hasattr(self, &#34;user_data&#34;) and self.user_data is not None:
+            res[&#34;userData&#34;] = self.user_data
+        return res</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="lib.misc.bounding_box.BBX"><code class="flex name class">
+<span>class <span class="ident">BBX</span></span>
+<span>(</span><span>page_num: int, min_h: float, min_v: float, max_h: float, max_v: float)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Bounding box in a PDF.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class BBX:
+    &#34;&#34;&#34;
+    Bounding box in a PDF.
+    &#34;&#34;&#34;
+
+    page_num: int
+    min_h: float
+    min_v: float
+    max_h: float
+    max_v: float
+
+    def __init__(
+        self: BBX, page_num: int, min_h: float, min_v: float, max_h: float, max_v: float
+    ):
+        self.page_num = page_num
+        self.min_h = min_h
+        self.min_v = min_v
+        self.max_h = max(min_h, max_h)
+        self.max_v = max(min_v, max_v)
+
+    def __str__(self: BBX) -&gt; str:
+        return f&#34;{self.min_h}-&gt;{self.max_h} | {self.min_v}-&gt;{self.max_v}&#34;
+
+    def contains(self: BBX, other: T):
+        &#34;&#34;&#34;
+        Check if this bounding box contains the other.
+        &#34;&#34;&#34;
+        return (
+            self.page_num == other.page_num
+            and other.min_h &gt;= self.min_h
+            and other.min_v &gt;= self.min_v
+            and other.max_h &lt;= self.max_h
+            and other.max_v &lt;= self.max_v
+        )
+
+    def intersects(self: BBX, other: T):
+        &#34;&#34;&#34;
+        Check if this bounding box intersects the other.
+        &#34;&#34;&#34;
+        return (
+            self.page_num == other.page_num
+            and other.max_h &gt;= self.min_h
+            and self.max_h &gt;= other.min_h
+            and other.max_v &gt;= self.min_v
+            and self.max_v &gt;= other.min_v
+        )
+
+    def group_with(
+        self: T, other: BBX, inplace: bool = True, extension: bool = False
+    ) -&gt; T:
+        &#34;&#34;&#34;
+        Merge two bounding boxes from the same page and compute extension.
+        &#34;&#34;&#34;
+        assert self.page_num == other.page_num
+
+        min_h = min(self.min_h, other.min_h)
+        min_v = min(self.min_v, other.min_v)
+        max_h = max(self.max_h, other.max_h)
+        max_v = max(self.max_v, other.max_v)
+
+        if extension:
+            exts = []
+            if min_h != self.min_h:
+                exts.append(BBX(self.page_num, min_h, min_v, self.min_h, max_v))
+            if min_v != self.min_v:
+                exts.append(BBX(self.page_num, min_h, min_v, max_h, self.min_v))
+            if max_h != self.max_h:
+                exts.append(BBX(self.page_num, self.max_h, min_v, max_h, max_v))
+            if max_v != self.max_v:
+                exts.append(BBX(self.page_num, min_h, self.max_v, max_h, max_v))
+
+        if not inplace:
+            self = copy(self)
+
+        self.min_h, self.min_v, self.max_h, self.max_v = min_h, min_v, max_h, max_v
+        if extension:
+            return self, exts
+        else:
+            return self
+
+    def surface(self: BBX) -&gt; float:
+        return (self.max_v - self.min_v) * (self.max_h - self.min_h)
+
+    def extend(self: T, d: float) -&gt; T:
+        copied = copy(self)
+        copied.min_h -= d
+        copied.max_h += d
+        copied.min_v -= d
+        copied.max_v += d
+        return copied
+
+    def to_coor(self: T) -&gt; List[float]:
+        return [self.min_h, self.min_v, self.max_h, self.max_v]
+
+    @staticmethod
+    def from_list(lst: List[T]) -&gt; T:
+        by_page = {}
+
+        for b in lst:
+            if b.page_num not in by_page:
+                by_page[b.page_num] = b
+            else:
+                by_page[b.page_num].group_with(b)
+
+        return by_page.values()
+
+    @staticmethod
+    def from_element(node: ET.Element) -&gt; BBX:
+        min_h, min_v = float(node.get(&#34;HPOS&#34;)), float(node.get(&#34;VPOS&#34;))
+        max_h, max_v = (
+            min_h + float(node.get(&#34;WIDTH&#34;, default=0)),
+            min_v + float(node.get(&#34;HEIGHT&#34;, default=0)),
+        )
+
+        while node.tag != f&#34;{ALTO}Page&#34;:
+            node = node.getparent()
+        page_num = int(node.get(&#34;PHYSICAL_IMG_NR&#34;))
+        return BBX(page_num, min_h, min_v, max_h, max_v)</code></pre>
+</details>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="lib.misc.bounding_box.LabelledBBX" href="#lib.misc.bounding_box.LabelledBBX">LabelledBBX</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="lib.misc.bounding_box.BBX.max_h"><code class="name">var <span class="ident">max_h</span> : float</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="lib.misc.bounding_box.BBX.max_v"><code class="name">var <span class="ident">max_v</span> : float</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="lib.misc.bounding_box.BBX.min_h"><code class="name">var <span class="ident">min_h</span> : float</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="lib.misc.bounding_box.BBX.min_v"><code class="name">var <span class="ident">min_v</span> : float</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="lib.misc.bounding_box.BBX.page_num"><code class="name">var <span class="ident">page_num</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Static methods</h3>
+<dl>
+<dt id="lib.misc.bounding_box.BBX.from_element"><code class="name flex">
+<span>def <span class="ident">from_element</span></span>(<span>node: ET.Element) ‑> <a title="lib.misc.bounding_box.BBX" href="#lib.misc.bounding_box.BBX">BBX</a></span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def from_element(node: ET.Element) -&gt; BBX:
+    min_h, min_v = float(node.get(&#34;HPOS&#34;)), float(node.get(&#34;VPOS&#34;))
+    max_h, max_v = (
+        min_h + float(node.get(&#34;WIDTH&#34;, default=0)),
+        min_v + float(node.get(&#34;HEIGHT&#34;, default=0)),
+    )
+
+    while node.tag != f&#34;{ALTO}Page&#34;:
+        node = node.getparent()
+    page_num = int(node.get(&#34;PHYSICAL_IMG_NR&#34;))
+    return BBX(page_num, min_h, min_v, max_h, max_v)</code></pre>
+</details>
+</dd>
+<dt id="lib.misc.bounding_box.BBX.from_list"><code class="name flex">
+<span>def <span class="ident">from_list</span></span>(<span>lst: List[T]) ‑> ~T</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def from_list(lst: List[T]) -&gt; T:
+    by_page = {}
+
+    for b in lst:
+        if b.page_num not in by_page:
+            by_page[b.page_num] = b
+        else:
+            by_page[b.page_num].group_with(b)
+
+    return by_page.values()</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="lib.misc.bounding_box.BBX.contains"><code class="name flex">
+<span>def <span class="ident">contains</span></span>(<span>self: <a title="lib.misc.bounding_box.BBX" href="#lib.misc.bounding_box.BBX">BBX</a>, other: T)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Check if this bounding box contains the other.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def contains(self: BBX, other: T):
+    &#34;&#34;&#34;
+    Check if this bounding box contains the other.
+    &#34;&#34;&#34;
+    return (
+        self.page_num == other.page_num
+        and other.min_h &gt;= self.min_h
+        and other.min_v &gt;= self.min_v
+        and other.max_h &lt;= self.max_h
+        and other.max_v &lt;= self.max_v
+    )</code></pre>
+</details>
+</dd>
+<dt id="lib.misc.bounding_box.BBX.extend"><code class="name flex">
+<span>def <span class="ident">extend</span></span>(<span>self: T, d: float) ‑> ~T</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def extend(self: T, d: float) -&gt; T:
+    copied = copy(self)
+    copied.min_h -= d
+    copied.max_h += d
+    copied.min_v -= d
+    copied.max_v += d
+    return copied</code></pre>
+</details>
+</dd>
+<dt id="lib.misc.bounding_box.BBX.group_with"><code class="name flex">
+<span>def <span class="ident">group_with</span></span>(<span>self: T, other: <a title="lib.misc.bounding_box.BBX" href="#lib.misc.bounding_box.BBX">BBX</a>, inplace: bool = True, extension: bool = False) ‑> ~T</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Merge two bounding boxes from the same page and compute extension.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def group_with(
+    self: T, other: BBX, inplace: bool = True, extension: bool = False
+) -&gt; T:
+    &#34;&#34;&#34;
+    Merge two bounding boxes from the same page and compute extension.
+    &#34;&#34;&#34;
+    assert self.page_num == other.page_num
+
+    min_h = min(self.min_h, other.min_h)
+    min_v = min(self.min_v, other.min_v)
+    max_h = max(self.max_h, other.max_h)
+    max_v = max(self.max_v, other.max_v)
+
+    if extension:
+        exts = []
+        if min_h != self.min_h:
+            exts.append(BBX(self.page_num, min_h, min_v, self.min_h, max_v))
+        if min_v != self.min_v:
+            exts.append(BBX(self.page_num, min_h, min_v, max_h, self.min_v))
+        if max_h != self.max_h:
+            exts.append(BBX(self.page_num, self.max_h, min_v, max_h, max_v))
+        if max_v != self.max_v:
+            exts.append(BBX(self.page_num, min_h, self.max_v, max_h, max_v))
+
+    if not inplace:
+        self = copy(self)
+
+    self.min_h, self.min_v, self.max_h, self.max_v = min_h, min_v, max_h, max_v
+    if extension:
+        return self, exts
+    else:
+        return self</code></pre>
+</details>
+</dd>
+<dt id="lib.misc.bounding_box.BBX.intersects"><code class="name flex">
+<span>def <span class="ident">intersects</span></span>(<span>self: <a title="lib.misc.bounding_box.BBX" href="#lib.misc.bounding_box.BBX">BBX</a>, other: T)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Check if this bounding box intersects the other.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def intersects(self: BBX, other: T):
+    &#34;&#34;&#34;
+    Check if this bounding box intersects the other.
+    &#34;&#34;&#34;
+    return (
+        self.page_num == other.page_num
+        and other.max_h &gt;= self.min_h
+        and self.max_h &gt;= other.min_h
+        and other.max_v &gt;= self.min_v
+        and self.max_v &gt;= other.min_v
+    )</code></pre>
+</details>
+</dd>
+<dt id="lib.misc.bounding_box.BBX.surface"><code class="name flex">
+<span>def <span class="ident">surface</span></span>(<span>self: <a title="lib.misc.bounding_box.BBX" href="#lib.misc.bounding_box.BBX">BBX</a>) ‑> float</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def surface(self: BBX) -&gt; float:
+    return (self.max_v - self.min_v) * (self.max_h - self.min_h)</code></pre>
+</details>
+</dd>
+<dt id="lib.misc.bounding_box.BBX.to_coor"><code class="name flex">
+<span>def <span class="ident">to_coor</span></span>(<span>self: T) ‑> List[float]</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def to_coor(self: T) -&gt; List[float]:
+    return [self.min_h, self.min_v, self.max_h, self.max_v]</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="lib.misc.bounding_box.LabelledBBX"><code class="flex name class">
+<span>class <span class="ident">LabelledBBX</span></span>
+<span>(</span><span>label: str, group: int, page_num, min_h, min_v, max_h, max_v, user_data=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Bounding box in a PDF.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class LabelledBBX(BBX):
+    label: str
+    group: int
+    user_data: Optional[Any]
+
+    def __init__(
+        self,
+        label: str,
+        group: int,
+        page_num,
+        min_h,
+        min_v,
+        max_h,
+        max_v,
+        user_data=None,
+    ):
+        self.label = label
+        self.group = group
+        self.page_num = page_num
+        self.min_h = min_h
+        self.min_v = min_v
+        self.max_h = max_h
+        self.max_v = max_v
+        self.user_data = user_data
+
+    def __str__(self) -&gt; str:
+        return f&#34;{self.label}-{self.group}:{self.min_h}|{self.min_v}|{self.max_h}|{self.max_v}@{self.page_num}&#34;
+
+    @staticmethod
+    def from_bbx(bbx, label, group, user_data=None) -&gt; LabelledBBX:
+        return LabelledBBX(
+            label,
+            group,
+            bbx.page_num,
+            bbx.min_h,
+            bbx.min_v,
+            bbx.max_h,
+            bbx.max_v,
+            user_data,
+        )
+
+    def to_web(self, id: str, paperId: str, layerId: str) -&gt; dict:
+        res = {
+            &#34;id&#34;: id,
+            &#34;paperId&#34;: paperId,
+            &#34;layerId&#34;: layerId,
+            &#34;pageNum&#34;: self.page_num,
+            &#34;minH&#34;: self.min_h,
+            &#34;minV&#34;: self.min_v,
+            &#34;maxH&#34;: self.max_h,
+            &#34;maxV&#34;: self.max_v,
+            &#34;label&#34;: self.label,
+            &#34;group&#34;: self.group,
+        }
+
+        if hasattr(self, &#34;user_data&#34;) and self.user_data is not None:
+            res[&#34;userData&#34;] = self.user_data
+        return res</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="lib.misc.bounding_box.BBX" href="#lib.misc.bounding_box.BBX">BBX</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="lib.misc.bounding_box.LabelledBBX.group"><code class="name">var <span class="ident">group</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="lib.misc.bounding_box.LabelledBBX.label"><code class="name">var <span class="ident">label</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="lib.misc.bounding_box.LabelledBBX.user_data"><code class="name">var <span class="ident">user_data</span> : Union[Any, NoneType]</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Static methods</h3>
+<dl>
+<dt id="lib.misc.bounding_box.LabelledBBX.from_bbx"><code class="name flex">
+<span>def <span class="ident">from_bbx</span></span>(<span>bbx, label, group, user_data=None) ‑> <a title="lib.misc.bounding_box.LabelledBBX" href="#lib.misc.bounding_box.LabelledBBX">LabelledBBX</a></span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def from_bbx(bbx, label, group, user_data=None) -&gt; LabelledBBX:
+    return LabelledBBX(
+        label,
+        group,
+        bbx.page_num,
+        bbx.min_h,
+        bbx.min_v,
+        bbx.max_h,
+        bbx.max_v,
+        user_data,
+    )</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="lib.misc.bounding_box.LabelledBBX.to_web"><code class="name flex">
+<span>def <span class="ident">to_web</span></span>(<span>self, id: str, paperId: str, layerId: str) ‑> dict</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def to_web(self, id: str, paperId: str, layerId: str) -&gt; dict:
+    res = {
+        &#34;id&#34;: id,
+        &#34;paperId&#34;: paperId,
+        &#34;layerId&#34;: layerId,
+        &#34;pageNum&#34;: self.page_num,
+        &#34;minH&#34;: self.min_h,
+        &#34;minV&#34;: self.min_v,
+        &#34;maxH&#34;: self.max_h,
+        &#34;maxV&#34;: self.max_v,
+        &#34;label&#34;: self.label,
+        &#34;group&#34;: self.group,
+    }
+
+    if hasattr(self, &#34;user_data&#34;) and self.user_data is not None:
+        res[&#34;userData&#34;] = self.user_data
+    return res</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="lib.misc.bounding_box.BBX" href="#lib.misc.bounding_box.BBX">BBX</a></b></code>:
+<ul class="hlist">
+<li><code><a title="lib.misc.bounding_box.BBX.contains" href="#lib.misc.bounding_box.BBX.contains">contains</a></code></li>
+<li><code><a title="lib.misc.bounding_box.BBX.group_with" href="#lib.misc.bounding_box.BBX.group_with">group_with</a></code></li>
+<li><code><a title="lib.misc.bounding_box.BBX.intersects" href="#lib.misc.bounding_box.BBX.intersects">intersects</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="lib.misc" href="index.html">lib.misc</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="lib.misc.bounding_box.BBX" href="#lib.misc.bounding_box.BBX">BBX</a></code></h4>
+<ul class="two-column">
+<li><code><a title="lib.misc.bounding_box.BBX.contains" href="#lib.misc.bounding_box.BBX.contains">contains</a></code></li>
+<li><code><a title="lib.misc.bounding_box.BBX.extend" href="#lib.misc.bounding_box.BBX.extend">extend</a></code></li>
+<li><code><a title="lib.misc.bounding_box.BBX.from_element" href="#lib.misc.bounding_box.BBX.from_element">from_element</a></code></li>
+<li><code><a title="lib.misc.bounding_box.BBX.from_list" href="#lib.misc.bounding_box.BBX.from_list">from_list</a></code></li>
+<li><code><a title="lib.misc.bounding_box.BBX.group_with" href="#lib.misc.bounding_box.BBX.group_with">group_with</a></code></li>
+<li><code><a title="lib.misc.bounding_box.BBX.intersects" href="#lib.misc.bounding_box.BBX.intersects">intersects</a></code></li>
+<li><code><a title="lib.misc.bounding_box.BBX.max_h" href="#lib.misc.bounding_box.BBX.max_h">max_h</a></code></li>
+<li><code><a title="lib.misc.bounding_box.BBX.max_v" href="#lib.misc.bounding_box.BBX.max_v">max_v</a></code></li>
+<li><code><a title="lib.misc.bounding_box.BBX.min_h" href="#lib.misc.bounding_box.BBX.min_h">min_h</a></code></li>
+<li><code><a title="lib.misc.bounding_box.BBX.min_v" href="#lib.misc.bounding_box.BBX.min_v">min_v</a></code></li>
+<li><code><a title="lib.misc.bounding_box.BBX.page_num" href="#lib.misc.bounding_box.BBX.page_num">page_num</a></code></li>
+<li><code><a title="lib.misc.bounding_box.BBX.surface" href="#lib.misc.bounding_box.BBX.surface">surface</a></code></li>
+<li><code><a title="lib.misc.bounding_box.BBX.to_coor" href="#lib.misc.bounding_box.BBX.to_coor">to_coor</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="lib.misc.bounding_box.LabelledBBX" href="#lib.misc.bounding_box.LabelledBBX">LabelledBBX</a></code></h4>
+<ul class="">
+<li><code><a title="lib.misc.bounding_box.LabelledBBX.from_bbx" href="#lib.misc.bounding_box.LabelledBBX.from_bbx">from_bbx</a></code></li>
+<li><code><a title="lib.misc.bounding_box.LabelledBBX.group" href="#lib.misc.bounding_box.LabelledBBX.group">group</a></code></li>
+<li><code><a title="lib.misc.bounding_box.LabelledBBX.label" href="#lib.misc.bounding_box.LabelledBBX.label">label</a></code></li>
+<li><code><a title="lib.misc.bounding_box.LabelledBBX.to_web" href="#lib.misc.bounding_box.LabelledBBX.to_web">to_web</a></code></li>
+<li><code><a title="lib.misc.bounding_box.LabelledBBX.user_data" href="#lib.misc.bounding_box.LabelledBBX.user_data">user_data</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.9.1</a>.</p>
+</footer>
+</body>
+</html>
